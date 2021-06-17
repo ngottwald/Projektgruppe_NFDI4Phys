@@ -1,0 +1,29 @@
+Camera Parameters
+
+EMCCD Camera
+exposure time= 100ms
+Quality= low noise
+speed = 1MHz
+Analog Gain:High
+Bit depth 16 bits
+Read Mode= Full frame (not frame transfer)
+size of pixels = 512x512 pixels
+temperature -67 degree 
+
+Laser Parameter
+laser excitation wavelength = 656 nm (CW)
+Excitation power = 4.1 mW
+objective lens = 0.95 NA, 100X
+Longpass filter > 667 nm
+for lifetimme= 80 MHz, 1.4 mW, longpass 667 nm, bandpass 740/10 nm
+
+TCSPC Parameters
+PicoHarp 300
+resolution= 8 ps
+integration time = 1 s
+
+SPADS
+MPD SPADS
+dark count = 50 cps
+time jitter = 45 ps
+quantum efficiency at 738 nm = 25 %
