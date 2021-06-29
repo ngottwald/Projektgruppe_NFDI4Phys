@@ -15,7 +15,7 @@ laser excitation wavelength = 656 nm (CW)
 Excitation power = 4.1 mW
 objective lens = 0.95 NA, 100X
 Longpass filter > 667 nm
-for lifetimme= 80 MHz, 1.4 mW, longpass 667 nm, bandpass 740/10 nm
+for lifetime= 80 MHz, 1.4 mW, longpass 667 nm, bandpass 740/10 nm
 
 TCSPC Parameters
 PicoHarp 300
