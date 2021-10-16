@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+	<Property name="Type" value="0" type="unsigned int/unsigned long"/>
+	<Property name="Active" value="0" type="unsigned int/unsigned long"/>
+	<Property name="Version" value="1" type="unsigned int/unsigned long"/>
+	<Property name="Time" value="1626419695" type="bool/int/long"/>
+	<Property name="Formatted Time" value="1626419695" type="bool/int/long"/>
+	<Property name="FileName" value="C:\Users\No1\Desktop\NFDY\SiV color centers data_5 s.sif" type="char * "/>
+	<Property name="Temperature" value="-999" type="float"/>
+	<Property name="UnstabalizedTemperature" value="-61.075" type="float"/>
+	<Property name="Head" value="0" type="unsigned char"/>
+	<Property name="HeadModel" value="DU970P_BVF" type="char * "/>
+	<Property name="StoreType" value="0" type="unsigned char"/>
+	<Property name="DataType" value="0" type="unsigned char"/>
+	<Property name="SIDisplacement" value="0" type="bool/int/long"/>
+	<Property name="SINumberSubFrames" value="1" type="bool/int/long"/>
+	<Property name="PixelReadOutTime" value="3.33333e-07" type="float"/>
+	<Property name="TrackHeight" value="0" type="bool/int/long"/>
+	<Property name="ReadPattern" value="0" type="unsigned char"/>
+	<Property name="ReadPatternFullName" value="Full Vertical Binning" type="char * "/>
+	<Property name="ShutterDelay" value="0" type="unsigned char"/>
+	<Property name="CentreRow" value="1" type="bool/int/long"/>
+	<Property name="RowOffset" value="0" type="bool/int/long"/>
+	<Property name="Operation" value="4" type="bool/int/long"/>
+	<Property name="Mode" value="1" type="unsigned char"/>
+	<Property name="ModeFullName" value="Single Scan" type="char * "/>
+	<Property name="TriggerSource" value="0" type="unsigned char"/>
+	<Property name="TriggerSourceFullName" value="Internal" type="char * "/>
+	<Property name="TriggerLevel" value="0" type="float"/>
+	<Property name="ExposureTime" value="5" type="float"/>
+	<Property name="Delay" value="5" type="float"/>
+	<Property name="IntegrationCycleTime" value="5" type="float"/>
+	<Property name="NumberIntegrations" value="1" type="bool/int/long"/>
+	<Property name="KineticCycleTime" value="5" type="float"/>
+	<Property name="FlipX" value="0" type="bool/int/long"/>
+	<Property name="FlipY" value="0" type="bool/int/long"/>
+	<Property name="Clock" value="0" type="bool/int/long"/>
+	<Property name="AClock" value="0" type="bool/int/long"/>
+	<Property name="IOC" value="0" type="bool/int/long"/>
+	<Property name="Frequency" value="0" type="float"/>
+	<Property name="NumberPulses" value="0" type="bool/int/long"/>
+	<Property name="FrameTransferAcquisitionMode" value="1" type="bool/int/long"/>
+	<Property name="BaselineClamp" value="1" type="bool/int/long"/>
+	<Property name="PreScan" value="0" type="bool/int/long"/>
+	<Property name="EMRealGain" value="0" type="bool/int/long"/>
+	<Property name="BaselineOffset" value="0" type="bool/int/long"/>
+	<Property name="SWVersion" value="0" type="unsigned int/unsigned long"/>
+	<Property name="SWVersionEx" value="4.30.30034.0" type="char * "/>
+	<Property name="MCP" value="0" type="bool/int/long"/>
+	<Property name="Gain" value="0" type="bool/int/long"/>
+	<Property name="VerticalClockAmp" value="0" type="bool/int/long"/>
+	<Property name="VerticalShiftSpeed" value="9.68e-06" type="float"/>
+	<Property name="OutputAmplifier" value="0" type="bool/int/long"/>
+	<Property name="PreAmplifierGain" value="4" type="float"/>
+	<Property name="Serial" value="21377" type="bool/int/long"/>
+	<Property name="DetectorFormatX" value="1600" type="bool/int/long"/>
+	<Property name="DetectorFormatZ" value="200" type="bool/int/long"/>
+	<Property name="NumberImages" value="1" type="unsigned int/unsigned long"/>
+	<Property name="NumberSubImages" value="1" type="unsigned int/unsigned long"/>
+	<Property name="SubImageHBin" value="1" type="bool/int/long"/>
+	<Property name="SubImageVBin" value="200" type="bool/int/long"/>
+	<Property name="SubImageLeft" value="1" type="bool/int/long"/>
+	<Property name="SubImageRight" value="1600" type="bool/int/long"/>
+	<Property name="SubImageTop" value="200" type="bool/int/long"/>
+	<Property name="SubImageBottom" value="1" type="bool/int/long"/>
+	<Property name="Baseline" value="300" type="bool/int/long"/>
+	<Property name="CCDLeft" value="1" type="bool/int/long"/>
+	<Property name="CCDRight" value="1600" type="bool/int/long"/>
+	<Property name="CCDTop" value="200" type="bool/int/long"/>
+	<Property name="CCDBottom" value="1" type="bool/int/long"/>
+	<Property name="Sensitivity" value="0" type="float"/>
+	<Property name="DetectionWavelength" value="550" type="float"/>
+	<Property name="CountConvertMode" value="0" type="bool/int/long"/>
+	<Property name="IsCountConvert" value="0" type="unsigned int/unsigned long"/>
+	<Property name="XAxisType" value="Wavelength" type="char * "/>
+	<Property name="XAxisUnit" value=" nm" type="char * "/>
+	<Property name="YAxisType" value="Counts" type="char * "/>
+	<Property name="YAxisUnit" value="" type="char * "/>
+	<Property name="ZAxisType" value="Pixel number" type="char * "/>
+	<Property name="ZAxisUnit" value=" " type="char * "/>
+	<Property name="UserText" value="" type="char * "/>
+	<Property name="IsPhotonCountingEnabled" value="0" type="unsigned int/unsigned long"/>
+	<Property name="NumberThresholds" value="0" type="bool/int/long"/>
+	<Property name="Threshold1" value="0" type="float"/>
+	<Property name="Threshold2" value="0" type="float"/>
+	<Property name="Threshold3" value="0" type="float"/>
+	<Property name="Threshold4" value="0" type="float"/>
+	<Property name="AveragingFilterMode" value="0" type="bool/int/long"/>
+	<Property name="AveragingFactor" value="1" type="bool/int/long"/>
+	<Property name="FrameCount" value="1" type="bool/int/long"/>
+	<Property name="NoiseFilter" value="0" type="unsigned int/unsigned long"/>
+	<Property name="Threshold" value="0" type="float"/>
+	<Property name="TimeStamp" value="0" type="unsigned int/unsigned long"/>
+	<Property name="OutputAEnabled" value="0" type="bool/int/long"/>
+	<Property name="OutputAWidth" value="0" type="unknown"/>
+	<Property name="OutputADelay" value="0" type="unknown"/>
+	<Property name="OutputAPolarity" value="Positive" type="char * "/>
+	<Property name="OutputBEnabled" value="0" type="bool/int/long"/>
+	<Property name="OutputBWidth" value="0" type="unknown"/>
+	<Property name="OutputBDelay" value="0" type="unknown"/>
+	<Property name="OutputBPolarity" value="Positive" type="char * "/>
+	<Property name="OutputCEnabled" value="0" type="bool/int/long"/>
+	<Property name="OutputCWidth" value="0" type="unknown"/>
+	<Property name="OutputCDelay" value="0" type="unknown"/>
+	<Property name="OutputCDelay" value="0" type="unknown"/>
+	<Property name="GateMode" value="Fire AND Gate" type="char * "/>
+	<Property name="GateWidth" value="0" type="unknown"/>
+	<Property name="GateDelay" value="0" type="unknown"/>
+	<Property name="GateDelayStep" value="0" type="double"/>
+	<Property name="GateWidthStep" value="0" type="double"/>
