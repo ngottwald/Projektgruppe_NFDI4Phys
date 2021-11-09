@@ -138,7 +138,7 @@ int main(int argc, char* argv[])
 
         ofstream xmlSifFile;
         xmlSifFile.open("sif.xml");
-        xmlSifFile << "<?xml version="1.0" encoding="UTF-8"?>\n";
+        xmlSifFile << "<?xml version=<\"1.0\" encoding=\"UTF - 8\"?>\n";
         
         xmlSifFile << "<properties>\n";
 
