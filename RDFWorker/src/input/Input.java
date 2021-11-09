@@ -19,6 +19,7 @@ public class Input {
 	
 	
 	public Input() throws ParserConfigurationException, SAXException, IOException {
+		
 		Experiment experiment = new Experiment();
 		File dir = new File("input");
 		File[] directoryListing = dir.listFiles();
@@ -40,7 +41,7 @@ public class Input {
 		  		for (int i = 0; i < nodeList.getLength(); i++) {
 		  			Node node = nodeList.item(i);
 		  			if (node.getNodeType() == Node.ELEMENT_NODE) {
-			           // do something with the current element
+			           
 			           if(node.getNodeName().equals("property")) {
 			        	   
 			        	   if(node.getAttributes().getNamedItem("name").getNodeValue().equals("HeadModel")) {
@@ -131,7 +132,7 @@ public class Input {
 			   }
 		  		experiment.addDevice(emccd);
 		  	}
-		    // Read out other possible files
+
 		    else if(child.getName().startsWith("spe")) {
 		    	// ...
 		    	}
