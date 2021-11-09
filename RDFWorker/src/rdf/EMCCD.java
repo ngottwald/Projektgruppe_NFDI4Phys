@@ -1,6 +1,6 @@
 package rdf;
 
-public class EMCCD {
+public class EMCCD extends Camera{
 	
 	private double emccdGain;
 	

@@ -3,42 +3,44 @@ package rdf;
 public class Camera extends Device{
 	
 	// sensor options
-	private boolean backIllumination;
-	private boolean fringeSuppression;
+	private boolean backIllumination = false;
+	private boolean fringeSuppression = false;
 	private double sensorQuantumEfficiency;
 	
 	// time resolution
 	private int timeStampAccuracy; // in nano seconds
-	private int verticalClockSpeed; // in micro seconds
-	private int frameRate; // in frames per second
-	private int frameBinning; // x times y
+	private double verticalClockSpeed; // in micro seconds
+	private double frameRate; // in frames per second
+	private int frameBinningX; // x times y
+	private int frameBinningY; // x times y
 	private int maximumReadoutRate; // in MHz
 	
 	private int wellDepth; // electrons per pixel
 	
 	// lens mount
-	private boolean cMount;
-	private boolean tMount;
-	private boolean fMount;
+	private boolean cMount = false;
+	private boolean tMount = false;
+	private boolean fMount = false;
 	
-	private double linearity;	
+	private double linearity; // in percent
 	
 	// resolution
-	private int resolutionBinning; // x times y
+	private int resolutionBinningX; // x times y
+	private int resolutionBinningY; // x times y
 	private int pixelWidth; // in microns
 	private int pixelLength; // in microns
 	private int numberOfPixels;
-	private int imageAreaWidth; // in millimeters
-	private int imageAreaLength; // in millimeters
+	private double imageAreaWidth; // in millimeters
+	private double imageAreaLength; // in millimeters
 	
-	private int operatingTemperature; // in celcius
+	private double operatingTemperature; // in celcius
 	
 	// noise
 //	private boolean checkManufacturer; // no idea what this means
 	private int coolingTemperature; // in celcius
 	private int electronsPerPixelPerSeconds;
 	private int noiseTemperature;
-	private int darkNoisecountsPerSecond;
+	private double darkNoisecountsPerSecond;
 	private int readNoiseElectrons;
 	
 	// detection efficency
@@ -73,23 +75,29 @@ public class Camera extends Device{
 	public void setTimeStampAccuracy(int timeStampAccuracy) {
 		this.timeStampAccuracy = timeStampAccuracy;
 	}
-	public int getVerticalClockSpeed() {
+	public double getVerticalClockSpeed() {
 		return verticalClockSpeed;
 	}
-	public void setVerticalClockSpeed(int verticalClockSpeed) {
-		this.verticalClockSpeed = verticalClockSpeed;
+	public void setVerticalClockSpeed(double d) {
+		this.verticalClockSpeed = d;
 	}
-	public int getFrameRate() {
+	public double getFrameRate() {
 		return frameRate;
 	}
-	public void setFrameRate(int frameRate) {
-		this.frameRate = frameRate;
+	public void setFrameRate(double d) {
+		this.frameRate = d;
 	}
-	public int getFrameBinning() {
-		return frameBinning;
+	public int getFrameBinningX() {
+		return frameBinningX;
 	}
-	public void setFrameBinning(int frameBinning) {
-		this.frameBinning = frameBinning;
+	public void setFrameBinningX(int frameBinningX) {
+		this.frameBinningX = frameBinningX;
+	}
+	public int getFrameBinningY() {
+		return frameBinningY;
+	}
+	public void setFrameBinningY(int frameBinningY) {
+		this.frameBinningY = frameBinningY;
 	}
 	public int getMaximumReadoutRate() {
 		return maximumReadoutRate;
@@ -127,11 +135,17 @@ public class Camera extends Device{
 	public void setLinearity(double linearity) {
 		this.linearity = linearity;
 	}
-	public int getResolutionBinning() {
-		return resolutionBinning;
+	public int getResolutionBinningX() {
+		return resolutionBinningX;
 	}
-	public void setResolutionBinning(int resolutionBinning) {
-		this.resolutionBinning = resolutionBinning;
+	public void setResolutionBinningX(int resolutionBinningX) {
+		this.resolutionBinningX = resolutionBinningX;
+	}
+	public int getResolutionBinningY() {
+		return resolutionBinningY;
+	}
+	public void setResolutionBinningY(int resolutionBinningY) {
+		this.resolutionBinningY = resolutionBinningY;
 	}
 	public int getPixelWidth() {
 		return pixelWidth;
@@ -151,23 +165,23 @@ public class Camera extends Device{
 	public void setNumberOfPixels(int numberOfPixels) {
 		this.numberOfPixels = numberOfPixels;
 	}
-	public int getImageAreaWidth() {
+	public double getImageAreaWidth() {
 		return imageAreaWidth;
 	}
-	public void setImageAreaWidth(int imageAreaWidth) {
-		this.imageAreaWidth = imageAreaWidth;
+	public void setImageAreaWidth(double d) {
+		this.imageAreaWidth = d;
 	}
-	public int getImageAreaLength() {
+	public double getImageAreaLength() {
 		return imageAreaLength;
 	}
-	public void setImageAreaLength(int imageAreaLength) {
-		this.imageAreaLength = imageAreaLength;
+	public void setImageAreaLength(double d) {
+		this.imageAreaLength = d;
 	}
-	public int getOperatingTemperature() {
+	public double getOperatingTemperature() {
 		return operatingTemperature;
 	}
-	public void setOperatingTemperature(int operatingTemperature) {
-		this.operatingTemperature = operatingTemperature;
+	public void setOperatingTemperature(double d) {
+		this.operatingTemperature = d;
 	}
 //	public boolean isCheckManufacturer() {
 //		return checkManufacturer;
@@ -213,11 +227,11 @@ public class Camera extends Device{
 		this.detectionQuantumEfficiency = detectionQuantumEfficiency;
 	}
 
-	public int getDarkNoisecountsPerSecond() {
+	public double getDarkNoisecountsPerSecond() {
 		return darkNoisecountsPerSecond;
 	}
 
-	public void setDarkNoisecountsPerSecond(int darkNoisecountsPerSecond) {
-		this.darkNoisecountsPerSecond = darkNoisecountsPerSecond;
+	public void setDarkNoisecountsPerSecond(double d) {
+		this.darkNoisecountsPerSecond = d;
 	}
 }

@@ -1,6 +1,6 @@
 package rdf;
 
-public class CCD {
+public class CCD extends Camera{
 	
 	public CCD() {
 		super();
