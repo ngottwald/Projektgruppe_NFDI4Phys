@@ -1,0 +1,3 @@
+﻿  example.cpp
+C:\Users\josef\workspace\SIFReaderSDK\example.cpp(19,9): warning C4068: Unbekanntes Pragma "argsused".
+  SIFReaderSDK.vcxproj -> C:\Users\josef\workspace\SIFReaderSDK\x64\Release\SIFReaderSDK.exe
