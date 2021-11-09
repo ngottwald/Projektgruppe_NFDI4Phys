@@ -137,8 +137,10 @@ int main(int argc, char* argv[])
         }
 
         ofstream xmlSifFile;
-        xmlSifFile.open("sif2xml.xml");
-        xmlSifFile << "<?xml version=\"1.0\" ?>\n";
+        xmlSifFile.open("sif.xml");
+        xmlSifFile << "<?xml version="1.0" encoding="UTF-8"?>\n";
+        
+        xmlSifFile << "<properties>\n";
 
         ATSIF_PropertyType pType;
         // Show all properties
@@ -160,7 +162,7 @@ int main(int argc, char* argv[])
                 retrievePropertyType(pType, sz_propertyType);
                 printf("Property Type : %s\n\n", sz_propertyType);
             }
-            xmlSifFile << "\t<Property name=\"";
+            xmlSifFile << "\t<property name=\"";
             xmlSifFile << propertyNames[i];
             xmlSifFile << "\" value=\"";
             xmlSifFile << sz_propertyValue;
@@ -168,7 +170,9 @@ int main(int argc, char* argv[])
             xmlSifFile << sz_propertyType;
             xmlSifFile << "\"/>\n";
         }
-
+        
+        xmlSifFile << "</properties>\n";
+        
         xmlSifFile.close();
 
         printf("Property : ");
