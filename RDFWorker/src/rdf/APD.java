@@ -1,6 +1,6 @@
 package rdf;
 
-public class APD {
+public class APD extends Detector{
 	
 	// input
 	private double couplingEfficiancy;

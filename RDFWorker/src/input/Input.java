@@ -17,14 +17,23 @@ import rdf.Experiment;
 
 public class Input {
 	
+	private Experiment experiment;
 	
+	/**
+	 * Reads in the input folder and parsed the xml files depending on the format.
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	public Input() throws ParserConfigurationException, SAXException, IOException {
 		
-		Experiment experiment = new Experiment();
+		experiment = new Experiment();
 		File dir = new File("input");
 		File[] directoryListing = dir.listFiles();
 		if (directoryListing != null) {
 		  for (File child : directoryListing) {
+			  
+			// xml files that contain the sif data
 		  	if(child.getName().startsWith("sif")){
 		  		EMCCD emccd = new EMCCD();
 		  		emccd.setLinearity(99);
@@ -41,8 +50,8 @@ public class Input {
 		  		for (int i = 0; i < nodeList.getLength(); i++) {
 		  			Node node = nodeList.item(i);
 		  			if (node.getNodeType() == Node.ELEMENT_NODE) {
-			           
-			           if(node.getNodeName().equals("property")) {
+		  				// the properties get read out and the correct values are assigned 
+		  				if(node.getNodeName().equals("property")) {
 			        	   
 			        	   if(node.getAttributes().getNamedItem("name").getNodeValue().equals("HeadModel")) {
 			        		   String value = node.getAttributes().getNamedItem("value").getNodeValue();
@@ -140,5 +149,13 @@ public class Input {
 		  } else {
 		    System.out.println("No files in directory");
 		  }
+		
+	}
+	
+	public Experiment getExperiment() {
+		return this.experiment;
+	}
+	public void setExperiment(Experiment experiment) {
+		this.experiment = experiment;
 	}
 }

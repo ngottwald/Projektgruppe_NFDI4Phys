@@ -45,7 +45,7 @@ public class Camera extends Device{
 	
 	// detection efficency
 	private int wavelength; // in nano meters
-	private double detectionQuantumEfficiency;
+	private double detectionQuantumEfficiency; // obsolete?
 	
 	public Camera() { // what attributes are mandatory for a camera?
 		super();
