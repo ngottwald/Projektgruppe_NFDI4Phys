@@ -1844,10 +1844,10 @@
 		<Binning>1600 x 200</Binning>
 		<Cooling_Temperature>-80 Celsius</Cooling_Temperature>
 		<C-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</C-Mount>
-		<Dark_Noise>1.0E-4 electron per pixel per second</Dark_Noise>
+		<Dark_Noise>1.0E-4 electrons per pixel per second</Dark_Noise>
 		<Detection_Efficiency>0.0%</Detection_Efficiency>
-		<Electronic_Noise>0 electron per pixel per second and 0 Celsius</Electronic_Noise>
-		<Frame_Binning>1600x200</Frame_Binning>
+		<Electronic_Noise>0 electrons per pixel per second and 0 Celsius</Electronic_Noise>
+		<Frame_Binning>1600 x 200</Frame_Binning>
 		<Frame_Rate>3.33333E-7Mhz</Frame_Rate>
 		<Image_Area>25.6 x 3.2</Image_Area>
 		<F-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</F-Mount>
@@ -1863,5 +1863,5 @@
 		<T-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</TMount>
 		<Vertical_Clock_Speed>9.68E-6</Vertical_Clock_Speed>
 		<Wavelength>550nm</Wavelength>
-		<Well_Depth>200000 electron per Pixel</Well_Depth>
+		<Well_Depth>200000 electrons per Pixel</Well_Depth>
 	</owl:NamedIndividual>

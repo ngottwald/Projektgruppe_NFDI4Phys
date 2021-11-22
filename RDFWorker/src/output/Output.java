@@ -19,13 +19,13 @@ public class Output {
 	public Output(Experiment experiment) throws IOException {
 		
 		File src = new File("rdf//NFDI4Phys.owl");
-		File dest = new File("output//experiment.owl");
+		File dest = new File("output//" + experiment.getName() + ".owl");
 		if(dest.exists() && !dest.isDirectory()) {
 			dest.delete();			
 		}
 		Files.copy(src.toPath(),dest.toPath());
 		
-		FileWriter fw = new FileWriter("output//experiment.owl", true);
+		FileWriter fw = new FileWriter("output//" + experiment.getName() + ".owl", true);
 		BufferedWriter bw = new BufferedWriter(fw);
 	    PrintWriter out= new PrintWriter(bw);
 		
@@ -40,10 +40,10 @@ public class Output {
 					out.println("		<Binning>" + emccd.getResolutionBinningX() + " x " + emccd.getResolutionBinningY() + "</Binning>");
 					out.println("		<Cooling_Temperature>" + emccd.getCoolingTemperature() + " Celsius</Cooling_Temperature>");
 					out.println("		<C-Mount rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + emccd.iscMount() + "</C-Mount>");
-					out.println("		<Dark_Noise>"+ emccd.getDarkNoisecountsPerSecond() + " electron per pixel per second</Dark_Noise>");
+					out.println("		<Dark_Noise>"+ emccd.getDarkNoisecountsPerSecond() + " electrons per pixel per second</Dark_Noise>");
 					out.println("		<Detection_Efficiency>" + emccd.getSensorQuantumEfficiency() + "%</Detection_Efficiency>");
-					out.println("		<Electronic_Noise>" + emccd.getElectronsPerPixelPerSeconds() + " electron per pixel per second and " + emccd.getNoiseTemperature() + " Celsius</Electronic_Noise>");
-					out.println("		<Frame_Binning>" + emccd.getFrameBinningX() + "x" + emccd.getFrameBinningY() + "</Frame_Binning>");
+					out.println("		<Electronic_Noise>" + emccd.getElectronsPerPixelPerSeconds() + " electrons per pixel per second and " + emccd.getNoiseTemperature() + " Celsius</Electronic_Noise>");
+					out.println("		<Frame_Binning>" + emccd.getFrameBinningX() + " x " + emccd.getFrameBinningY() + "</Frame_Binning>");
 					out.println("		<Frame_Rate>" + emccd.getFrameRate() + "Mhz</Frame_Rate>");
 					out.println("		<Image_Area>" + emccd.getImageAreaLength() + " x " + emccd.getImageAreaWidth() + "</Image_Area>");
 					out.println("		<F-Mount rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + emccd.isfMount() + "</F-Mount>");
@@ -59,7 +59,7 @@ public class Output {
 					out.println("		<T-Mount rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + emccd.istMount() + "</TMount>");
 					out.println("		<Vertical_Clock_Speed>" + emccd.getVerticalClockSpeed() + "</Vertical_Clock_Speed>");
 					out.println("		<Wavelength>" + emccd.getWavelength() + "nm</Wavelength>");
-					out.println("		<Well_Depth>" + emccd.getWellDepth() + " electron per Pixel</Well_Depth>");
+					out.println("		<Well_Depth>" + emccd.getWellDepth() + " electrons per Pixel</Well_Depth>");
 					out.println("	</owl:NamedIndividual>");
 				}
 				if(d instanceof CCD) {
