@@ -28,7 +28,7 @@ class RDFWorker:
         # prints graph has 86 statements.
 
         # print out the entire Graph in the RDF Turtle format
-        # print(self.g.serialize(format="turtle").decode("utf-8"))
+        print(self.g.serialize(format="turtle").decode("utf-8"))
     
     def handle_Literal(self, literal):
         datatype = self.get_datatype_of_Literal(literal)
@@ -55,22 +55,56 @@ class RDFWorker:
         Camera = URIRef("http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera")
         subPropOf = URIRef("http://www.w3.org/2000/01/rdf-schema#subPropertyOf")
         isType = URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+        owlClass = URIRef("http://www.w3.org/2002/07/owl#Class")
 
         count_test_sub = 0
+
+        self.show_rdf_graph()
+
+        records = {}
+        properties = {}
 
         subject_list = []
         pred_list = []
         for idx, (subj, pred, obj) in enumerate(self.g):
-
-            if type(obj) == Literal:
-                self.handle_Literal(obj)
+            if len(subj.toPython().split("#")) > 1:
+                subjName = subj.toPython().split("#")[1]
             else:
-                print(f'------> {obj} --- OF TYPE {type(obj)} --')
-        
-        print('All literals')
-        for value, datatype in self.literals:
-            print(f'value: {value}   datatype: {datatype}')
-        # container = db.Container()
+                subjName = subj.toPython().split("#")[0]
+
+            if obj == owlClass:
+                print(f'Class: {subjName} of Type {type(subj)}')
+                record = db.RecordType(name=subj)
+                records[subjName] = record
+                
+
+            if type(obj) == Literal and len(records) :
+                print(f'{subj}  obj:{obj.toPython()} .language:{obj.language} .value:{obj.value} .datatype:{obj.datatype} ')
+                print(f'\n {pred}')
+                propertyElement = db.Property(name=pred, value=obj.value, datatype=db.TEXT)
+                if(subjName in properties):
+                    properties[subjName].append(propertyElement)
+                else:
+                     properties[subjName] = [propertyElement]
+
+
+        container = db.Container()
+
+        # for record_key in records:
+        container_input = []
+        container_input.append(records["Camera"])
+        i = 0
+        for prop in properties["Camera"]:
+            print(prop)    
+            records["Camera"].add_property(prop)
+            container_input.append(prop)
+
+        print(container_input)
+        container.extend(container_input)
+        container.insert()
+
+        print(f'All records: {records}')
+        print(f'All properties: {properties}')
 
 
 
