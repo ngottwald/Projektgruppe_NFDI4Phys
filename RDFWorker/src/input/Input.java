@@ -25,12 +25,13 @@ public class Input {
 	 * @throws SAXException
 	 * @throws IOException
 	 */
-	public Input() throws ParserConfigurationException, SAXException, IOException {
+	
+	public boolean input(String directory) throws ParserConfigurationException, SAXException, IOException {
 		
 		experiment = new Experiment();
-		File dir = new File("input");
+		File dir = new File(directory);
 		File[] directoryListing = dir.listFiles();
-		if (directoryListing != null) {
+		if (directoryListing != null && directoryListing.length > 0) {
 		  for (File child : directoryListing) {
 			  experiment.setName(child.getName());
 			  File[] exDir = child.listFiles();
@@ -58,15 +59,13 @@ public class Input {
 				        	     if(node.getAttributes().getNamedItem("name").getNodeValue().equals("HeadModel")) {
 				        		     String value = node.getAttributes().getNamedItem("value").getNodeValue();
 				        		     if(value.contains("DU970P")) {
-				        			     emccd.setMaximumReadoutRate(1515);
-				        			     emccd.setReadNoiseElectrons(1);
+				        			     emccd.setMaximumReadoutRate(649);				        			     
 				        			     emccd.setImageAreaLength(25.6);
 				        			     emccd.setImageAreaWidth(3.2);
 				        			     emccd.setNumberOfPixels(1600*200);
 				        		     }
 				        		     if(value.contains("DU971P")) {
-				        			     emccd.setMaximumReadoutRate(1515);
-				        			     emccd.setReadNoiseElectrons(1);
+				        			     emccd.setMaximumReadoutRate(396);				        			     
 				        			     emccd.setImageAreaLength(25.6);
 				        			     emccd.setImageAreaWidth(6.4);
 				        			     emccd.setNumberOfPixels(1600*400);
@@ -137,6 +136,21 @@ public class Input {
 				        	     if(node.getAttributes().getNamedItem("name").getNodeValue().equals("EMRealGain")) {
 				        		     String value = node.getAttributes().getNamedItem("value").getNodeValue();
 				        		     emccd.setEmccdGain(Integer.parseInt(value));
+				        		     if(value.equals("0")) {
+				        		    	 String time = String.valueOf(emccd.getFrameRate());
+				        		    	 if(time.startsWith("50")) {
+				        		    		 emccd.setReadNoiseElectrons(2.8);
+				        		    	 }
+				        		    	 if(time.startsWith("1")) {
+				        		    		 emccd.setReadNoiseElectrons(6.7);
+				        		    	 }
+				        		    	 if(time.startsWith("3")) {
+				        		    		 emccd.setReadNoiseElectrons(8.5);
+				        		    	 }
+				        		     }
+				        		     if(value.equals("1")) {
+				        		    	 emccd.setReadNoiseElectrons(1);
+				        		     }
 				        	     }
 				             }
 				         }
@@ -146,14 +160,17 @@ public class Input {
 
 			      else if(child.getName().startsWith("spe")) {
 			    	// ...
+			    	  return false;
 			    	  }
 			    }
 
 		    }
 		  } else {
 		    System.out.println("No files in directory");
+		    return false;
 		  }
 		
+		return true;
 	}
 	
 	public Experiment getExperiment() {

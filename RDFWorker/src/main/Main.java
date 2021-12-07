@@ -1,12 +1,12 @@
 package main;
 
-import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import adapter.ParseRdf;
 import input.Input;
 import output.Output;
 
@@ -15,7 +15,9 @@ public class Main {
 	public static void main(String[] args) {
 		try {
 			Input input = new Input();
-			Output output = new Output(input.getExperiment());			
+			input.input("input/experiments");
+			Output output = new Output();
+			output.output(input.getExperiment());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -26,6 +28,8 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ParseRdf rdf = new ParseRdf("output/2021-11-15.owl");
+		rdf.printExperiment();
 	}
-
+	
 }

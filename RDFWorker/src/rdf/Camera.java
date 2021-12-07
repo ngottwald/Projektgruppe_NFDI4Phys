@@ -41,7 +41,7 @@ public class Camera extends Device{
 	private int electronsPerPixelPerSeconds;
 	private int noiseTemperature;
 	private double darkNoisecountsPerSecond;
-	private int readNoiseElectrons;
+	private double readNoiseElectrons;
 	
 	// detection efficency
 	private int wavelength; // in nano meters
@@ -208,11 +208,11 @@ public class Camera extends Device{
 		this.noiseTemperature = noiseTemperature;
 	}
 
-	public int getReadNoiseElectrons() {
+	public double getReadNoiseElectrons() {
 		return readNoiseElectrons;
 	}
-	public void setReadNoiseElectrons(int readNoiseElectrons) {
-		this.readNoiseElectrons = readNoiseElectrons;
+	public void setReadNoiseElectrons(double d) {
+		this.readNoiseElectrons = d;
 	}
 	public int getWavelength() {
 		return wavelength;
