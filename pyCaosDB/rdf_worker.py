@@ -1,17 +1,20 @@
 import rdflib
 from rdflib import URIRef, Literal, BNode
 
+class Record:
+    def __init__(self, name):
+        self.Name = name
 
 class RDFWorker:
     __doc__ = """
     """
 
-    def __init__(self, rdf_file_path):
+    def __init__(self, db):
         self.g = rdflib.Graph()
-        self.literals = []
+        self.db = db
 
-        if rdf_file_path:
-            result = self.g.parse(rdf_file_path)
+        self.records = {}
+        self.properties = {}        
 
     """
 
@@ -30,15 +33,21 @@ class RDFWorker:
         # print out the entire Graph in the RDF Turtle format
         print(self.g.serialize(format="turtle").decode("utf-8"))
     
-    def handle_Literal(self, literal):
-        datatype = self.get_datatype_of_Literal(literal)
-        value = literal.value
-        
-        if not (value, datatype) in self.literals:
-            self.literals.append((value, datatype))
+    def add_property_entry(self, subj_name, prop_name, prop_value, prop_type):
+        property_element = self.db.Property(name=prop_name, value=prop_value, datatype=prop_type)
 
-    def get_value_of_Literal(self, literal):
-        return literal.value
+        if(subj_name in self.properties):
+            print('Add')
+            self.properties[subj_name].append(property_element)
+        else:
+            self.properties[subj_name] = [property_element]
+            self.add_record_entry(subj_name)
+        pass
+
+    def add_record_entry(self, subj_name):
+        record_element = self.db.Record(name=subj_name)
+        self.records[subj_name] = record_element
+        pass
     
     def get_datatype_of_Literal(self, literal):
         if type(literal.datatype) == None:
@@ -49,62 +58,44 @@ class RDFWorker:
             else:
                 return type(literal.value)   
         else:
-            return type(literal.value)     
+            return type(literal.value) 
 
-    def export_caosdb_data_model(self, db):
-        Camera = URIRef("http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera")
-        subPropOf = URIRef("http://www.w3.org/2000/01/rdf-schema#subPropertyOf")
-        isType = URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
-        owlClass = URIRef("http://www.w3.org/2002/07/owl#Class")
+    def import_rdf_data(self, rdf_file_path):
+        if rdf_file_path:
+            result = self.g.parse(rdf_file_path)
 
-        count_test_sub = 0
-
-        self.show_rdf_graph()
-
-        records = {}
-        properties = {}
-
-        subject_list = []
-        pred_list = []
         for idx, (subj, pred, obj) in enumerate(self.g):
             if len(subj.toPython().split("#")) > 1:
-                subjName = subj.toPython().split("#")[1]
+                subj_name = subj.toPython().split("#")[1]
             else:
-                subjName = subj.toPython().split("#")[0]
-
-            if obj == owlClass:
-                print(f'Class: {subjName} of Type {type(subj)}')
-                record = db.RecordType(name=subj)
-                records[subjName] = record
+                subj_name = subj.toPython().split("#")[0]
                 
 
-            if type(obj) == Literal and len(records) :
+            if type(obj) == Literal :
                 print(f'{subj}  obj:{obj.toPython()} .language:{obj.language} .value:{obj.value} .datatype:{obj.datatype} ')
                 print(f'\n {pred}')
-                propertyElement = db.Property(name=pred, value=obj.value, datatype=db.TEXT)
-                if(subjName in properties):
-                    properties[subjName].append(propertyElement)
-                else:
-                     properties[subjName] = [propertyElement]
+                prop_type = self.db.TEXT
+                self.add_property_entry(subj_name, pred, obj.value, prop_type)
+        print(f'All records: {self.records}')
+        print(f'All properties: {self.properties}')
 
+    def export_caosdb_data_model(self):        
 
-        container = db.Container()
+        container = self.db.Container()
 
-        # for record_key in records:
-        container_input = []
-        container_input.append(records["Camera"])
-        i = 0
-        for prop in properties["Camera"]:
-            print(prop)    
-            records["Camera"].add_property(prop)
-            container_input.append(prop)
+        for record_key in self.records:
+            container_input = []
+            container_input.append(records["Camera"])
+            i = 0
+            for prop in properties["Camera"]:
+                print(prop)    
+                records["Camera"].add_property(prop)
+                container_input.append(prop)
 
         print(container_input)
         container.extend(container_input)
         container.insert()
 
-        print(f'All records: {records}')
-        print(f'All properties: {properties}')
 
 
 

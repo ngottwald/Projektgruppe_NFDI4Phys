@@ -5,6 +5,8 @@ from rdf_worker import RDFWorker
 class NamesTestCase(unittest.TestCase):
 
    def test_literal_parsing(self):
+       rdf_worker = RDFWorker("RDFFiles/NFDI4Phys.owl")
        literal = Literal("Test")
-       result = RDFWorker.get_datatype_of_Literal(literal)
+       result = rdf_worker.get_datatype_of_Literal(literal)
        self.assertEqual(result, "INTEGER")
+

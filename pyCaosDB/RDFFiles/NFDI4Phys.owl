@@ -1,14 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#"
-     xml:base="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:Geiger="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys"/>
-    
+<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#" xml:base="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:Geiger="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys" />
 
 
     <!-- 
@@ -19,99 +11,85 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BNC -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BNC">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beams -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beams">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Optical"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Optical" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Bluetooth -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Bluetooth">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wireless"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wireless" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electrical"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electrical" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electrical -->
 
-    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electrical"/>
-    
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electrical" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ethernet -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ethernet">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Optical"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Optical" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Optical -->
 
-    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Optical"/>
-    
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Optical" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SMA -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SMA">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#USB -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#USB">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cables" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wifi -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wifi">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wireless"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wireless" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wireless -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wireless">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electrical"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electrical" />
     </owl:AnnotationProperty>
-    
 
 
     <!-- 
@@ -122,124 +100,109 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Area -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Area">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Area"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Area" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#After_Pulsing_Probability -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#After_Pulsing_Probability">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty" />
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#After_Pulsing_Probability"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#After_Pulsing_Probability" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BNC -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BNC">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Back_Ilumination -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Back_Ilumination">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Bandwidth -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Bandwidth">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beam_Diameter -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beam_Diameter">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beam_Divergence -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beam_Divergence">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Binning -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Binning">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#C-Mount -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#C-Mount">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lens_Mount"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lens_Mount" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Check_Manufacturere_And_Actual_Property -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Check_Manufacturere_And_Actual_Property">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cooling_Temperature -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cooling_Temperature">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Coupling_Efficiancy -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Coupling_Efficiancy">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dark_Noise -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dark_Noise">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dead_Time -->
@@ -247,12 +210,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dead_Time">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dead_Time"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dead_Time" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency -->
@@ -260,100 +222,89 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronic_Noise -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronic_Noise">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Eliptical -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Eliptical">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ethernet -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ethernet">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#F-Mount -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#F-Mount">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lens_Mount"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lens_Mount" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Free_Space -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Free_Space">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frequency -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frequency">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repetition_Rate"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repetition_Rate" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fringe_Supression -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fringe_Supression">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Front_Ilumination -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Front_Ilumination">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain -->
@@ -361,40 +312,37 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs" />
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD" />
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Photomultipliers"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Photomultipliers" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Horizontal -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Horizontal">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Image_Area -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Image_Area">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input -->
@@ -402,18 +350,17 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs" />
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SNPD"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SNPD" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces -->
@@ -421,12 +368,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode -->
@@ -434,51 +380,46 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lens_Mount -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lens_Mount">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty" />
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Liniearity -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Liniearity">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linear/Photoconductive_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linear/Photoconductive_Mode" />
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Liniearity"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Liniearity" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#M-squared -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#M-squared">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Readout_Rate -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Readout_Rate">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model -->
@@ -486,37 +427,33 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Manufacturer"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Manufacturer" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#NIM -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#NIM">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power" />
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Number_Of_Pixels -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Number_Of_Pixels">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature -->
@@ -524,18 +461,17 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperatures -->
@@ -543,12 +479,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperatures">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperatures"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperatures" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode -->
@@ -556,18 +491,17 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs" />
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Photodiodes"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Photodiodes" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output -->
@@ -575,12 +509,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode -->
@@ -588,44 +521,39 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pixel_Size -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pixel_Size">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Contrast -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Contrast">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power -->
@@ -633,21 +561,19 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power" />
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power_Stability -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power_Stability">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration -->
@@ -655,38 +581,34 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Quantum_Efficiency -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Quantum_Efficiency">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ratio -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ratio">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Contrast"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Contrast" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Noise -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Noise">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Out_Rate -->
@@ -694,12 +616,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Out_Rate">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Out_Rate"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Out_Rate" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repetition_Rate -->
@@ -707,12 +628,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repetition_Rate">
         <rdfs:range>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repetition_Rate"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulsed"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repetition_Rate" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulsed" />
             </owl:Restriction>
         </rdfs:range>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution -->
@@ -720,12 +640,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SDK -->
@@ -733,20 +652,18 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SDK">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SDK"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Manufacturer"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SDK" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Manufacturer" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SMA -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SMA">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options -->
@@ -754,12 +671,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_options" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software -->
@@ -767,20 +683,18 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Manufacturer"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Manufacturer" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum -->
@@ -788,121 +702,108 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#T-Mount -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#T-Mount">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lens_Mount"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lens_Mount" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TEM00 -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TEM00">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spatial_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TTL -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TTL">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode" />
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Stamp_Accuracy -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Stamp_Accuracy">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Type -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Type">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#USB_3.0 -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#USB_3.0">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Version -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Version">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Type"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Type" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Vertical -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Vertical">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Vertical_Clock_Speed -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Vertical_Clock_Speed">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wavelength -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wavelength">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Well_Depth -->
@@ -910,28 +811,25 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Well_Depth">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Well_Depth"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Well_Depth" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/Photovoltaic_Mode -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/Photovoltaic_Mode">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linear/Photoconductive_Mode -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linear/Photoconductive_Mode">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode" />
     </owl:ObjectProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Count_Rate_/_Power -->
@@ -939,12 +837,11 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Count_Rate_/_Power">
         <rdfs:domain>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Count_Rate_/_Power"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Count_Rate_/_Power" />
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
-    
 
 
     <!-- 
@@ -955,586 +852,506 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Area -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Area"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Area" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#After_Pulsing_Probability -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#After_Pulsing_Probability"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#After_Pulsing_Probability" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BNC -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BNC">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Back_Ilumination -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Back_Ilumination">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Bandwidth -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Bandwidth">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beam_Diameter -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beam_Diameter">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beam_Divergence -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beam_Divergence">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Binning -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Binning">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#C-Mount -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#C-Mount">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Check_Manufacturer_And_Actual_Property -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Check_Manufacturer_And_Actual_Property">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cooling_Temperature -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Cooling_Temperature">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Coupling_Efficiancy -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Coupling_Efficiancy">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dark_Noise -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dark_Noise">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dead_Time -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dead_Time"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dead_Time" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronic_Noise -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronic_Noise">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Eliptical -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Eliptical">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ethernet -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ethernet">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#F-Mount -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#F-Mount">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fiber">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Free_Space -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Free_Space">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frequency -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frequency">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repitition_Rate"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repitition_Rate" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fringe_Supression -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fringe_Supression">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Horizontal -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Horizontal">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Image_Area -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Image_Area">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Input" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linearity -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linearity">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linear/Photoconductive_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linear/Photoconductive_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#M-Squared -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#M-Squared">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Readout_Rate -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Readout_Rate">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#NIM -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#NIM">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Number_Of_Pixels -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Number_Of_Pixels">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperatures -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperatures"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperatures" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pixel_Size -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pixel_Size">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Contrast -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Contrast">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power_Stability -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power_Stability">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Power" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Quantum_Efficiency -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Quantum_Efficiency">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ratio -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Ratio">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Contrast"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Contrast" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Noise -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Noise">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Gain" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Noise" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Out_Rate -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Out_Rate"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Read_Out_Rate" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repitition_Rate -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repitition_Rate"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Repitition_Rate" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Resolution" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SDK -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SDK"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SDK" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SMA -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SMA">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sensor_Options" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Software" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#T-Mount -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#T-Mount">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense_Mount" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TEM00 -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TEM00">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spartial_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TTL -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TTL">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulse_Duration" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Output_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Stamp_Accuracy -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Stamp_Accuracy">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Type -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Type">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Model" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#USB_3.0 -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#USB_3.0">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Interfaces" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Version -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Version">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Type"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Type" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Vertical -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Vertical">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Polarization_Direction" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Vertical_Clock_Speed -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Vertical_Clock_Speed">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Time_Resolution" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wavelength -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wavelength">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency" />
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectrum" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Well_Depth -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Well_Depth"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Well_Depth" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/Photovoltaic_Mode -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/Photovoltaic_Mode">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linear/Photoconductive_Mode -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linear/Photoconductive_Mode">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operation_Mode" />
     </owl:DatatypeProperty>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Count_Rate_/_Power -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Count_Rate_/_Power"/>
-    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Count_Rate_/_Power" />
 
 
     <!-- 
@@ -1545,287 +1362,248 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BS -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BS"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#BS" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beamsplitter -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Beamsplitter">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CCD -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CCD">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CMOS -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CMOS">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Collection_Unit -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Collection_Unit">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Confocal -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Confocal"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Confocal" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices" />
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronics -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronics">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Excitation_Unit -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Excitation_Unit">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Filters -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Filters"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Filters" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frequency_Converters -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frequency_Converters">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Imaging -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Imaging"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Imaging" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#LEDs -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#LEDs">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lamps -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lamps">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lenses -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lenses">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Manufacturer -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Manufacturer">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Devices" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#PC_lense -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#PC_lense">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lense" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Photodiodes -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Photodiodes">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Photomultipliers -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Photomultipliers">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulsed -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulsed">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Lasers" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SNPD -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#SNPD">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sample_Stage -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sample_Stage">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Microscope" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Source -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Source"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Source" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Sources">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices"/>
-        <Electrical rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronics"/>
-        <Optical rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Active_Devices" />
+        <Electrical rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronics" />
+        <Optical rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detectors" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectroscopy -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectroscopy"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Spectroscopy" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC"/>
-    
+    <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC" />
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Trigger -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Trigger">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#TCSPC" />
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW/Pulsed -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW/Pulsed">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulsed"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW" />
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pulsed" />
     </owl:Class>
-    
 
 
     <!-- 
@@ -1836,13 +1614,11 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APD -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APD">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#APDs" />
         <Active_Area>100x100 micro meter</Active_Area>
         <After_Pulsing_Probability>0.1%</After_Pulsing_Probability>
         <Dark_Noise>&lt; 25 count per second</Dark_Noise>
@@ -1855,20 +1631,19 @@
         <Wavelength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">738</Wavelength>
         <Geiger:Photovoltaic_Mode>ture</Geiger:Photovoltaic_Mode>
     </owl:NamedIndividual>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD" />
         <Back_Ilumination rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Back_Ilumination>
         <Binning>1x1</Binning>
         <C-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</C-Mount>
         <Dark_Noise>0.001 electron per pixel per second</Dark_Noise>
         <Detection_Efficiency>90%</Detection_Efficiency>
         <Electronic_Noise>4.9 electron per pixel per second</Electronic_Noise>
-        <Frame_Rate>1 Mhz</Frame_Rate>
+        <Frame_Rate unit="Mhz">1</Frame_Rate>
         <Fringe_Supression rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Fringe_Supression>
         <Linearity>&lt; 2%</Linearity>
         <Maximum_Readout_Rate>20 Mhz</Maximum_Readout_Rate>
@@ -1879,13 +1654,12 @@
         <Wavelength>738nm</Wavelength>
         <Well_Depth>200k electron per Pixel</Well_Depth>
     </owl:NamedIndividual>
-    
 
 
     <!-- http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW" />
         <Bandwidth>0.5nm</Bandwidth>
         <Beam_Diameter>1.5x3.5 mm</Beam_Diameter>
         <Beam_Divergence>0.11 Brad</Beam_Divergence>
@@ -1897,8 +1671,4 @@
         <Wavelength>656nm</Wavelength>
     </owl:NamedIndividual>
 </rdf:RDF>
-
-
-
 <!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-

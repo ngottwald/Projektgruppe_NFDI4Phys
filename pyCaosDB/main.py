@@ -9,25 +9,10 @@ def main():
     conf = dict(db.configuration.get_config().items("Connection"))
     print("##### Config:\n{}\n".format(conf))
 
-    # Query the server, the result is a Container
-    # result = db.Query("FIND Record").execute()
-    # print("##### First query result:\n{}\n".format(result[0]))
+    rdf_worker1 = rdf_worker.RDFWorker(db)
+    rdf_worker1.import_rdf_data("RDFFiles/NFDI4Phys.owl")
+    # rdf_worker1.export_caosdb_data_model()
 
 
 if __name__ == '__main__':
     main()
-    # db.Info()
-    # a = db.Property(name="a", datatype=db.DOUBLE)
-    # container = db.Container()
-    # container.extend([a])
-    # container.insert()
-    # result = db.Query("FIND Record").execute()
-    # print("##### First query result:\n{}\n".format(result[0]))
-    # guitar_record = find_guitar()
-    # print(guitar_record)
-
-    # analyse()
-
-    rdf_worker1 = rdf_worker.RDFWorker("RDFFiles/NFDI4Phys.owl")
-    #rdf_worker1.show_rdf_graph()
-    rdf_worker1.export_caosdb_data_model(db)
