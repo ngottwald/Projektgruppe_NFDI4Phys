@@ -37,17 +37,14 @@ class RDFWorker:
         property_element = self.db.Property(name=prop_name, value=prop_value, datatype=prop_type)
 
         if(subj_name in self.properties):
-            print('Add')
             self.properties[subj_name].append(property_element)
         else:
             self.properties[subj_name] = [property_element]
             self.add_record_entry(subj_name)
-        pass
 
     def add_record_entry(self, subj_name):
-        record_element = self.db.Record(name=subj_name)
+        record_element = self.db.RecordType(name=subj_name)
         self.records[subj_name] = record_element
-        pass
     
     def get_datatype_of_Literal(self, literal):
         if type(literal.datatype) == None:
@@ -72,10 +69,9 @@ class RDFWorker:
                 
 
             if type(obj) == Literal :
-                print(f'{subj}  obj:{obj.toPython()} .language:{obj.language} .value:{obj.value} .datatype:{obj.datatype} ')
-                print(f'\n {pred}')
                 prop_type = self.db.TEXT
                 self.add_property_entry(subj_name, pred, obj.value, prop_type)
+
         print(f'All records: {self.records}')
         print(f'All properties: {self.properties}')
 
@@ -85,14 +81,12 @@ class RDFWorker:
 
         for record_key in self.records:
             container_input = []
-            container_input.append(records["Camera"])
+            container_input.append(self.records["Camera"])
             i = 0
-            for prop in properties["Camera"]:
-                print(prop)    
-                records["Camera"].add_property(prop)
+            for prop in self.properties["Camera"]:  
+                self.records["Camera"].add_property(prop)
                 container_input.append(prop)
 
-        print(container_input)
         container.extend(container_input)
         container.insert()
 

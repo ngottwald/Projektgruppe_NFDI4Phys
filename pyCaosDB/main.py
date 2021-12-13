@@ -11,7 +11,7 @@ def main():
 
     rdf_worker1 = rdf_worker.RDFWorker(db)
     rdf_worker1.import_rdf_data("RDFFiles/NFDI4Phys.owl")
-    # rdf_worker1.export_caosdb_data_model()
+    rdf_worker1.export_caosdb_data_model()
 
 
 if __name__ == '__main__':
