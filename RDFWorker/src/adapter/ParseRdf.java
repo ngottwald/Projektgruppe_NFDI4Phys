@@ -29,7 +29,7 @@ public class ParseRdf {
 	 * Parses the rdf file.
 	 * @param file the rdf filepath.
 	 */
-	public void parse(String file) {
+	public boolean parse(String file) {
 		experiment = new Experiment();
 		experiment.setName(file.substring(file.indexOf("/")+1,file.indexOf(".")));
 		
@@ -60,9 +60,15 @@ public class ParseRdf {
 		    	curr = curr + "" + object.toString() + "";
 		    }
 		    statements.add(curr);
-		    //System.out.println(curr);
 		}
+		
+		if(statements.isEmpty()) {
+			return false;
+		}
+		
 		evaluateAll(statements);
+		
+		return true;
 	}
 	
 	/**
@@ -96,7 +102,7 @@ public class ParseRdf {
 	
 	/**
 	 * Evaluates the camera part of the rdf.
-	 * @param statements is the list of statements corresponing to cameras.
+	 * @param statements is the list of statements corresponding to cameras.
 	 * @return the generated Camera class of the rdf.
 	 */
 	public Camera evaluateCamera(List<String> statements) {
@@ -124,9 +130,9 @@ public class ParseRdf {
 				camera.setBackIllumination(Boolean.parseBoolean(split[1].substring(0,split[1].indexOf("^"))));
 			}
 			if(split[0].equals("Binning")) {
-				camera.setFrameBinningX(Integer.parseInt(split[1].substring(0,split[1].indexOf("x")-1)));
+				camera.setFrameBinningX(Integer.parseInt(split[1].substring(0,split[1].indexOf("x"))));
 				camera.setFrameBinningY(Integer.parseInt(split[1].substring(split[1].indexOf("x")+1,split[1].length())));
-				camera.setResolutionBinningX(Integer.parseInt(split[1].substring(0,split[1].indexOf("x")-1)));
+				camera.setResolutionBinningX(Integer.parseInt(split[1].substring(0,split[1].indexOf("x"))));
 				camera.setResolutionBinningY(Integer.parseInt(split[1].substring(split[1].indexOf("x")+1,split[1].length())));
 			}
 			if(split[0].equals("Cooling_Temperature")) {
@@ -145,7 +151,7 @@ public class ParseRdf {
 				camera.setFrameRate(Double.parseDouble(split[1].substring(0,split[1].indexOf("^"))));			
 			}
 			if(split[0].equals("Image_Area")) {
-				camera.setImageAreaLength(Double.parseDouble(split[1].substring(0,split[1].indexOf("x")-1)));		
+				camera.setImageAreaLength(Double.parseDouble(split[1].substring(0,split[1].indexOf("x"))));		
 				camera.setImageAreaWidth(Double.parseDouble(split[1].substring(split[1].indexOf("x")+1,split[1].length())));
 			}
 			if(split[0].equals("F-Mount")) {
@@ -167,7 +173,7 @@ public class ParseRdf {
 				camera.setOperatingTemperature(Double.parseDouble(split[1].substring(0,split[1].indexOf("^"))));			
 			}
 			if(split[0].equals("Pixel_Size")) {
-				camera.setPixelLength(Integer.parseInt(split[1].substring(0,split[1].indexOf("x")-1)));	
+				camera.setPixelLength(Integer.parseInt(split[1].substring(0,split[1].indexOf("x"))));	
 				camera.setPixelWidth(Integer.parseInt(split[1].substring(split[1].indexOf("x")+1,split[1].indexOf("^"))));	
 			}
 			if(split[0].equals("Quantum_Efficiency")) {
@@ -218,27 +224,27 @@ public class ParseRdf {
 					System.out.println("	Type: EMCCD");
 					System.out.println("	Back Ilumination: " + e.isBackIllumination());
 					System.out.println("	Binning: " + e.getFrameBinningX() + "x" + e.getFrameBinningY());
-					System.out.println("	Cooling Temperature: " + e.getCoolingTemperature());
+					System.out.println("	Cooling Temperature: " + e.getCoolingTemperature() + " Celsius");
 					System.out.println("	C-Mount: " + e.iscMount());
-					System.out.println("	Dark Noise : " + e.getDarkNoisecountsPerSecond());
-					System.out.println("	Detection Efficiency : " + e.getDetectionQuantumEfficiency());
+					System.out.println("	Dark Noise: " + e.getDarkNoisecountsPerSecond() + " electrons per pixel per second");
+					System.out.println("	Detection Efficiency : " + e.getDetectionQuantumEfficiency() + "%");
 					System.out.println("	Frame Binning: " + e.getFrameBinningX() + "x" + e.getFrameBinningY());
-					System.out.println("	Frame Rate : " + e.getFrameRate());
-					System.out.println("	Image Area : " + e.getImageAreaLength() + "x" + e.getImageAreaWidth());
-					System.out.println("	F-Mount : " + e.isfMount());
-					System.out.println("	Fringe Suppression : " + e.isFringeSuppression());
-					System.out.println("	Linearity : " + e.getLinearity());
-					System.out.println("	Maximum Readout Rate : " + e.getMaximumReadoutRate());
+					System.out.println("	Frame Rate: " + e.getFrameRate() + "MHz");
+					System.out.println("	Image Area: " + e.getImageAreaLength() + "x" + e.getImageAreaWidth());
+					System.out.println("	F-Mount: " + e.isfMount());
+					System.out.println("	Fringe Suppression: " + e.isFringeSuppression());
+					System.out.println("	Linearity:>" + e.getLinearity() + "%");
+					System.out.println("	Maximum Readout Rate: " + e.getMaximumReadoutRate() + "MHz");
 					System.out.println("	Number of Pixels: " + e.getNumberOfPixels());
-					System.out.println("	Operating Temperature: " + e.getOperatingTemperature());
-					System.out.println("	Pixel Size: " + e.getPixelLength() + "x" + e.getPixelWidth());
-					System.out.println("	Quantum Efficiency: " + e.getDetectionQuantumEfficiency());
-					System.out.println("	Read Noise: " + e.getReadNoiseElectrons());
+					System.out.println("	Operating Temperature: " + e.getOperatingTemperature() + " Celsius");
+					System.out.println("	Pixel Size: " + e.getPixelLength() + "x" + e.getPixelWidth() + " micro meter");
+					System.out.println("	Quantum Efficiency: " + e.getDetectionQuantumEfficiency() + "%");
+					System.out.println("	Read Noise: " + e.getReadNoiseElectrons() + " electrons per pixel per second");
 					System.out.println("	Time Stamp Accuracy: " + e.getTimeStampAccuracy());
 					System.out.println("	T-Mount: " + e.istMount());
 					System.out.println("	Vertical Clock Speed: " + e.getVerticalClockSpeed());
-					System.out.println("	Wavelength: " + e.getWavelength());
-					System.out.println("	Well Depth: " + e.getWellDepth());
+					System.out.println("	Wavelength: " + e.getWavelength() + "nm");
+					System.out.println("	Well Depth: " + e.getWellDepth() + " electrons per pixel");
 				}				
 			}
 			if(d instanceof APD) {

@@ -17,16 +17,16 @@ public class Output {
 	 * @throws IOException
 	 */
 
-	public boolean output(Experiment experiment) throws IOException {		
+	public boolean output(Experiment experiment, String output) throws IOException {		
 		
 		File src = new File("rdf//NFDI4Phys.owl");
-		File dest = new File("output//" + experiment.getName() + ".owl");
+		File dest = new File(output + experiment.getName() + ".owl");
 		if(dest.exists() && !dest.isDirectory()) {
 			dest.delete();			
 		}
 		Files.copy(src.toPath(),dest.toPath());
 		
-		FileWriter fw = new FileWriter("output//" + experiment.getName() + ".owl", true);
+		FileWriter fw = new FileWriter(output + experiment.getName() + ".owl", true);
 		BufferedWriter bw = new BufferedWriter(fw);
 	    PrintWriter out= new PrintWriter(bw);
 		

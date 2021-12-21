@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/Test#"
+     xml:base="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/Test"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Geiger="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/Test#Geiger/">
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+	<owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/Test#Camera">
+		<rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD"/>
+		<Back_Ilumination rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</Back_Ilumination>
+		<Binning>1920x1080</Binning>
+		<Cooling_Temperature rdf:datatype="http://www.w3.org/2001/XMLSchema#Celsius">-273</Cooling_Temperature>
+		<Dark_Noise rdf:datatype="http://www.w3.org/2001/XMLSchema#electrons_per_pixel_per_second">1.0E-4</Dark_Noise>
+		<Fringe_Supression rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Fringe_Supression>
+		<Linearity>>99.0%</Linearity>
+		<Wavelength rdf:datatype="http://www.w3.org/2001/XMLSchema#nm">333</Wavelength>
+		<Well_Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#electrons_per_pixel">200000</Well_Depth>
+	</owl:NamedIndividual>
+</rdf:RDF>

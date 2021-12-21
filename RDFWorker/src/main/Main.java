@@ -17,7 +17,7 @@ public class Main {
 			Input input = new Input();
 			input.input("input/experiments");
 			Output output = new Output();
-			output.output(input.getExperiment());
+			output.output(input.getExperiment(), "output//");
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
