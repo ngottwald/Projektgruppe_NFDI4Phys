@@ -5,6 +5,12 @@ class Record:
     def __init__(self, name):
         self.Name = name
 
+class Property:
+    def __init__(self, name, valueType, value):
+        self.Name = name
+        self.ValueType = valueType
+        self.Value = value
+
 class RDFWorker:
     __doc__ = """
     """
@@ -14,7 +20,8 @@ class RDFWorker:
         self.db = db
 
         self.records = {}
-        self.properties = {}        
+        self.properties = {}
+        self.recordTypes = {}        
 
     """
 
@@ -45,6 +52,38 @@ class RDFWorker:
     def add_record_entry(self, subj_name):
         record_element = self.db.RecordType(name=subj_name)
         self.records[subj_name] = record_element
+
+    def addPropertiesToRecordType(self, recordTypeName, propertyName, propertyValue, propertyType):
+        propertyObj = Property(propertyName, propertyType, propertyValue)
+
+        if(recordTypeName in self.properties):
+            self.properties[recordTypeName].append(propertyObj)
+        else:
+            self.properties[recordTypeName] = [propertyObj]
+
+        propertyElement = self.db.Property(name=propertyObj.Name, datatype=propertyObj.ValueType)
+
+        self.createRecordType(recordTypeName)
+        self.recordTypes[recordTypeName].add_property(propertyElement)
+
+    def createRecord(self, recordTypeName):
+        recordElement = db.Record()
+        recordElement.add_parent(name=recordTypeName)
+        for prop in self.properties[recordTypeName]:
+            propertyElement = self.db.Property(name=prop.Name, value=prop.Value)
+            recordElement.add_property(name=prop.name, value=prop_value)
+
+        self.records.append(recordElement)
+
+    def createRecordType(self, recordTypeName):
+        if not self.checkForExcistingRecordType(recordTypeName):
+            recordTypeElement = self.db.RecordType(name=recordTypeName)
+            self.recordTypes[recordTypeName] = recordTypeElement
+
+    def checkForExcistingRecordType(self, recordTypeName):
+        # TODO: Check if there is an recordtype in database that fits to the incomming data (record)
+        pass
+
     
     def get_datatype_of_Literal(self, literal):
         if type(literal.datatype) == None:
@@ -70,10 +109,11 @@ class RDFWorker:
 
             if type(obj) == Literal :
                 prop_type = self.db.TEXT
-                self.add_property_entry(subj_name, pred, obj.value, prop_type)
+                # self.add_property_entry(subj_name, pred, obj.value, prop_type)
+                self.addPropertiesToRecordType(subj_name , pred, obj.value, prop_type)
 
-        print(f'All records: {self.records}')
-        print(f'All properties: {self.properties}')
+        print(f'All records: {self.recordTypes}')
+        # print(f'All properties: {self.properties}')
 
     def export_caosdb_data_model(self):        
 
