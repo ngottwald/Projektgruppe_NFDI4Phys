@@ -19,8 +19,7 @@ def main():
     rdf_worker1 = rdf_worker.RDFWorker(db)
     rdf_worker1.import_rdf_data("RDFFiles/NFDI4Phys.owl")
     # rdf_worker1.export_caosdb_data_model()
-
-    read_from_caosdb(db)
+    rdf_worker1.readRecordFromCaosDBIntoFile("Camera 01", "test.xml")
 
 
 if __name__ == '__main__':

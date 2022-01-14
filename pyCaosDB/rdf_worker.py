@@ -1,5 +1,6 @@
 import rdflib
 from rdflib import URIRef, Literal, BNode
+from lxml import etree
 
 class Record:
     def __init__(self, name):
@@ -53,6 +54,10 @@ class RDFWorker:
         record_element = self.db.RecordType(name=subj_name)
         self.records[subj_name] = record_element
 
+    """ 
+        Properties get added to an dictionary having as key the recordType Name.
+        Recordtype element gets created, propertis added and pushed to a recordType list.
+    """
     def addPropertiesToRecordType(self, recordTypeName, propertyName, propertyValue, propertyType):
         propertyObj = Property(propertyName, propertyType, propertyValue)
 
@@ -66,10 +71,14 @@ class RDFWorker:
         self.createRecordType(recordTypeName)
         self.recordTypes[recordTypeName].add_property(propertyElement)
 
+    """ 
+        Using existing recordType to create an record
+    """
     def createRecord(self, recordTypeName):
-        recordElement = db.Record()
+        recordElement = self.db.Record()
         recordElement.add_parent(name=recordTypeName)
         for prop in self.properties[recordTypeName]:
+            # TODO: Maybe some logic to check if the property has a valid value necessary
             propertyElement = self.db.Property(name=prop.Name, value=prop.Value)
             recordElement.add_property(name=prop.name, value=prop_value)
 
@@ -80,9 +89,15 @@ class RDFWorker:
             recordTypeElement = self.db.RecordType(name=recordTypeName)
             self.recordTypes[recordTypeName] = recordTypeElement
 
+    def readRecordFromCaosDBIntoFile(self, recordName, fileName):
+        response = self.db.execute_query(f'FIND RECORD "{recordName}"')
+        xmlStringTree = etree.tostring(response.to_xml(), pretty_print=True)
+        file1 = open(fileName, 'wb')
+        file1.write(xmlStringTree)
+        file1.close()
+
     def checkForExcistingRecordType(self, recordTypeName):
-        # TODO: Check if there is an recordtype in database that fits to the incomming data (record)
-        pass
+        response = self.db.execute_query(f'FIND RECORD "Camera 01"')
 
     
     def get_datatype_of_Literal(self, literal):
@@ -112,7 +127,7 @@ class RDFWorker:
                 # self.add_property_entry(subj_name, pred, obj.value, prop_type)
                 self.addPropertiesToRecordType(subj_name , pred, obj.value, prop_type)
 
-        print(f'All records: {self.recordTypes}')
+        # print(f'All records: {self.recordTypes}')
         # print(f'All properties: {self.properties}')
 
     def export_caosdb_data_model(self):        
