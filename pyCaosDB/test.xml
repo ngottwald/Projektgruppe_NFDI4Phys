@@ -1,0 +1,24 @@
+<Entities>
+  <noscript>
+    </noscript>
+  <Record id="126" name="Camera 01">
+    <Version id="4f199495edd1cd0cdd6d41ed47fb8a2494780219" head="true"/>
+    <Parent id="109" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera"/>
+    <Property id="110" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Linearity" datatype="TEXT" importance="FIX" flag="inheritance:FIX">&lt; 2%</Property>
+    <Property id="111" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Number_Of_Pixels" datatype="TEXT" importance="FIX" flag="inheritance:FIX">512x512</Property>
+    <Property id="112" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Detection_Efficiency" datatype="TEXT" importance="FIX" flag="inheritance:FIX">90%</Property>
+    <Property id="113" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Electronic_Noise" datatype="TEXT" importance="FIX" flag="inheritance:FIX">4.9 electron per pixel per second</Property>
+    <Property id="114" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Dark_Noise" datatype="TEXT" importance="FIX" flag="inheritance:FIX">0.001 electron per pixel per second</Property>
+    <Property id="115" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#C-Mount" datatype="TEXT" importance="FIX" flag="inheritance:FIX">1</Property>
+    <Property id="116" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Wavelength" datatype="TEXT" importance="FIX" flag="inheritance:FIX">738nm</Property>
+    <Property id="117" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Quantum_Efficiency" datatype="TEXT" importance="FIX" flag="inheritance:FIX">90%</Property>
+    <Property id="118" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Frame_Rate" datatype="TEXT" importance="FIX" flag="inheritance:FIX">1 Mhz</Property>
+    <Property id="119" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Operating_Temperature" datatype="TEXT" importance="FIX" flag="inheritance:FIX">-67 Celsius</Property>
+    <Property id="120" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Binning" datatype="TEXT" importance="FIX" flag="inheritance:FIX">1x1</Property>
+    <Property id="121" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Fringe_Supression" datatype="TEXT" importance="FIX" flag="inheritance:FIX">1</Property>
+    <Property id="122" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Back_Ilumination" datatype="TEXT" importance="FIX" flag="inheritance:FIX">1</Property>
+    <Property id="123" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Maximum_Readout_Rate" datatype="TEXT" importance="FIX" flag="inheritance:FIX">20 Mhz</Property>
+    <Property id="124" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Well_Depth" datatype="TEXT" importance="FIX" flag="inheritance:FIX">200k electron per Pixel</Property>
+    <Property id="125" name="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Pixel_Size" datatype="TEXT" importance="FIX" flag="inheritance:FIX">16x16 micro meter</Property>
+  </Record>
+</Entities>

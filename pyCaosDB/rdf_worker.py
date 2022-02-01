@@ -1,9 +1,18 @@
 import rdflib
+import datetime
 from rdflib import URIRef, Literal, BNode
+from lxml import etree
 
 class Record:
     def __init__(self, name):
         self.Name = name
+
+class Property:
+    def __init__(self, name, valueType, value, unit):
+        self.Name = name
+        self.ValueType = valueType
+        self.Value = value
+        self.Unit = unit
 
 class RDFWorker:
     __doc__ = """
@@ -14,7 +23,8 @@ class RDFWorker:
         self.db = db
 
         self.records = {}
-        self.properties = {}        
+        self.properties = {}
+        self.recordTypes = {}        
 
     """
 
@@ -32,30 +42,69 @@ class RDFWorker:
 
         # print out the entire Graph in the RDF Turtle format
         print(self.g.serialize(format="turtle").decode("utf-8"))
-    
-    def add_property_entry(self, subj_name, prop_name, prop_value, prop_type):
-        property_element = self.db.Property(name=prop_name, value=prop_value, datatype=prop_type)
 
-        if(subj_name in self.properties):
-            self.properties[subj_name].append(property_element)
+    """ 
+        Properties get added to an dictionary having as key the recordType Name.
+        Recordtype element gets created, propertis added and pushed to a recordType list.
+    """
+    def addPropertiesToRecordType(self, recordTypeName, propertyName, propertyValue, propertyType, propertyUnit):
+        propertyObj = Property(propertyName, propertyType, propertyValue, propertyUnit)
+
+        if(recordTypeName in self.properties):
+            self.properties[recordTypeName].append(propertyObj)
         else:
-            self.properties[subj_name] = [property_element]
-            self.add_record_entry(subj_name)
+            self.properties[recordTypeName] = [propertyObj]
 
-    def add_record_entry(self, subj_name):
-        record_element = self.db.RecordType(name=subj_name)
-        self.records[subj_name] = record_element
-    
-    def get_datatype_of_Literal(self, literal):
-        if type(literal.datatype) == None:
-            if literal.datatype.find('integer') > -1:
-                return 'INT'
-            elif literal.datatype.find('nonNegativeInteger') > -1:
-                return 'UNSIGNED INT'
+        propertyElement = self.db.Property(name=propertyObj.Name, datatype=propertyObj.ValueType, unit=propertyObj.Unit)
+
+        if(not recordTypeName in self.recordTypes):
+            self.createRecordType(recordTypeName)
+        self.recordTypes[recordTypeName].add_property(propertyElement)
+
+    """ 
+        Using existing recordType to create an record
+    """
+    def createRecord(self, recordTypeName):
+        ct = datetime.datetime.now()
+        recordElement = self.db.Record(f'{recordTypeName} {ct}')
+        recordElement.add_parent(recordTypeName)
+        for prop in self.properties[recordTypeName]:
+            # TODO: Maybe some logic to check if the property has a valid value necessary
+            propertyElement = self.db.Property(name=prop.Name, value=prop.Value)
+            recordElement.add_property(name=prop.Name, value=prop.Value)
+
+        self.records[recordTypeName] = recordElement
+
+    def createRecordType(self, recordTypeName):
+        if not self.checkForExcistingRecordType(recordTypeName):
+            recordTypeElement = self.db.RecordType(name=recordTypeName)
+            self.recordTypes[recordTypeName] = recordTypeElement
+
+    def readRecordFromCaosDBIntoFile(self, recordName, fileName):
+        response = self.db.execute_query(f'FIND RECORD "{recordName}"')
+        xmlStringTree = etree.tostring(response.to_xml(), pretty_print=True)
+        # TODO: Parse into rdf graph
+        file1 = open(fileName, 'wb')
+        file1.write(xmlStringTree)
+        file1.close()
+
+    def checkForExcistingRecordType(self, recordTypeName):
+        response = self.db.execute_query(f'FIND RECORD "Camera 01"')
+
+    def determineDataType(self, datatypeRaw):
+        if(datatypeRaw == None):
+            return self.db.TEXT
+        else:
+            datatypeString = datatypeRaw.split("#")[1]
+            if(datatypeString == 'integer'):
+                return self.db.INTEGER
+            elif(datatypeString == 'boolean'):
+                return self.db.BOOLEAN
+            elif(datatypeString == 'double'):
+                return self.db.DOUBLE
             else:
-                return type(literal.value)   
-        else:
-            return type(literal.value) 
+                return self.db.TEXT
+    
 
     def import_rdf_data(self, rdf_file_path):
         if rdf_file_path:
@@ -69,26 +118,27 @@ class RDFWorker:
                 
 
             if type(obj) == Literal :
-                prop_type = self.db.TEXT
-                self.add_property_entry(subj_name, pred, obj.value, prop_type)
-
-        print(f'All records: {self.records}')
-        print(f'All properties: {self.properties}')
+                prop_type = self.determineDataType(obj.datatype)
+                self.addPropertiesToRecordType(subj_name , pred, obj, prop_type, obj.datatype)
 
     def export_caosdb_data_model(self):        
 
         container = self.db.Container()
+        container_input = []
 
-        for record_key in self.records:
-            container_input = []
-            container_input.append(self.records["Camera"])
-            i = 0
-            for prop in self.properties["Camera"]:  
-                self.records["Camera"].add_property(prop)
-                container_input.append(prop)
+        for recordTypeName in self.recordTypes:
+            
+            for prop in self.properties[recordTypeName]:  
+                container_input.append(self.db.Property(name=prop.Name, datatype=prop.ValueType))
+
+            container_input.append(self.recordTypes[recordTypeName])                
 
         container.extend(container_input)
         container.insert()
+
+        for recordTypeName in self.recordTypes:
+            self.createRecord(recordTypeName)
+            self.records[recordTypeName].insert()
 
 
 

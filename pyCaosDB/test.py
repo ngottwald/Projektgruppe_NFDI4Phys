@@ -22,8 +22,7 @@ class TestRDFWorker(unittest.TestCase):
    def tearDown(self):      
      pass
 
-   def test_add_property(self):
-      self.rdf_worker.records = {}
+   def test_add_property(self):      
       self.rdf_worker.properties = {} 
 
       subj_name = 'test_subj_name'
@@ -32,8 +31,18 @@ class TestRDFWorker(unittest.TestCase):
       prop_type = self.rdf_worker.db.TEXT
       self.rdf_worker.add_property_entry(subj_name, prop_name, prop_value, prop_type)
       self.assertEqual(len(self.rdf_worker.properties), 1)
-      self.assertEqual(len(self.rdf_worker.records), 1)
 
       self.rdf_worker.add_property_entry(subj_name, prop_name, prop_value, prop_type)
       self.assertEqual(len(self.rdf_worker.properties), 1)
+
+   def test_add_record(self):
+      self.rdf_worker.records = {}
+
+      subj_name = 'test_subj_name'
+      self.rdf_worker.add_record_entry(subj_name)
       self.assertEqual(len(self.rdf_worker.records), 1)
+
+      subj_name = 'test_subj_name'
+      self.rdf_worker.add_record_entry(subj_name)
+      self.assertEqual(len(self.rdf_worker.records), 1)
+
