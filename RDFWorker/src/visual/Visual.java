@@ -240,6 +240,7 @@ public class Visual{
 	    out.close();
 	}
 	
+	
 	public void createGraph(String name) throws IOException {
 		try (InputStream dot = getClass().getResourceAsStream("/graph.dot")) {
 		    MutableGraph g = new Parser().read(dot);
