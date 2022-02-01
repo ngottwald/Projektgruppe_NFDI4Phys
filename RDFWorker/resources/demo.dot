@@ -1,0 +1,24 @@
+
+graph G {
+	Experiment [label=
+    <<b>Experiment</b><BR ALIGN="LEFT"
+    />15.11.22<BR ALIGN="CENTER"/>>];
+	ActiveDevices [label=
+    <<b>Acitve Devices</b>>];
+	Camera [label=
+    <<b>Camera</b>>];
+	EMCCD [label=
+    <<b>EMCCD</b>>];
+	SensorOptions [label=
+    <<b>SensorOptions</b>>];
+	BackIllumination [label=
+    <<b>Back Illumination</b><BR ALIGN="LEFT"
+    />True<BR ALIGN="CENTER"/>>];
+	
+	Experiment -- ActiveDevices;
+	ActiveDevices -- Camera;
+	Camera -- EMCCD;
+	Camera -- SensorOptions;
+	SensorOptions -- BackIllumination;
+	
+}

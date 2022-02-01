@@ -1,0 +1,170 @@
+graph G {
+	rankdir = TB;
+	subgraph {
+	Experiment [label=
+    <<b>Experiment</b><BR ALIGN="LEFT"
+    />2021-11-15<BR ALIGN="CENTER"/>>];
+	ActiveDevices [label=
+    <<b>Acitve Devices</b>>];
+	ActiveDevices -- Experiment;
+	{rank = min; Experiment;}
+	Camera [label=
+    <<b>Camera</b>>];
+	ActiveDevices -- Camera;
+	EMCCD [label=
+    <<b>EMCCD</b>>];
+	Camera -- EMCCD
+	EmccdGain [label=
+    <<b>Gain</b><BR ALIGN="LEFT"
+    />0.0<BR ALIGN="CENTER"/>>];
+	EMCCD -- EmccdGain;
+	Binning [label=
+    <<b>Binning</b>>];
+	EMCCD -- Binning
+	binVal [label=
+    <<b>1600 times 200</b>>];
+	Binning -- binVal;
+	SensorOptions [label=
+    <<b>Sensor Options</b>>];
+	Camera -- SensorOptions;
+	QuantumEfficiency [label=
+    <<b>Quantum Efficiency</b><BR ALIGN="LEFT"
+    />0.0%<BR ALIGN="CENTER"/>>];
+	SensorOptions -- QuantumEfficiency;
+	FringeSuppression [label=
+    <<b>Fringe Suppression</b><BR ALIGN="LEFT"
+    />true<BR ALIGN="CENTER"/>>];
+	SensorOptions -- FringeSuppression;
+	BackIllumination [label=
+    <<b>Back Illumination</b><BR ALIGN="LEFT"
+    />true<BR ALIGN="CENTER"/>>];
+	SensorOptions -- BackIllumination;
+	TimeResolution [label=
+    <<b>TimeResolution</b>>];
+	Camera -- TimeResolution;
+	TimeStampAccuracy [label=
+    <<b>Time Stamp Accuracy</b>>];
+	TimeResolution -- TimeStampAccuracy;
+	timeResVal [label=
+    <<b>0 Nano seconds</b>>];
+	TimeStampAccuracy -- timeResVal;
+	VerticalClockSpeed [label=
+    <<b>Vertical Clock Speed</b>>];
+	TimeResolution -- VerticalClockSpeed;
+	clockSpeedVal [label=
+    <<b>9.68E-6 Micro seconds</b>>];
+	VerticalClockSpeed -- clockSpeedVal;
+	FrameRate [label=
+    <<b>Frame Rate</b>>];
+	TimeResolution -- FrameRate;
+	frameRateVal [label=
+    <<b>3.33333E-7 Frames per second</b>>];
+	FrameRate -- frameRateVal;
+	MaximumReadoutRate [label=
+    <<b>Maximum Readout Rate</b>>];
+	TimeResolution -- MaximumReadoutRate;
+	maxReadVal [label=
+    <<b>649 MHz</b>>];
+	MaximumReadoutRate -- maxReadVal;
+	WellDepth [label=
+    <<b>Well Depth</b>>];
+	Camera -- WellDepth;
+	wellDepthVal [label=
+    <<b>200000 Electrons</b>>];
+	WellDepth -- wellDepthVal;
+	LensMount [label=
+    <<b>Lens Mount</b>>];
+	Camera -- LensMount;
+	CMount [label=
+    <<b>C-Mount</b><BR ALIGN="LEFT"
+    />false<BR ALIGN="CENTER"/>>];
+	LensMount -- CMount;
+	TMount [label=
+    <<b>T-Mount</b><BR ALIGN="LEFT"
+    />false<BR ALIGN="CENTER"/>>];
+	LensMount -- TMount;
+	FMount [label=
+    <<b>F-Mount</b><BR ALIGN="LEFT"
+    />false<BR ALIGN="CENTER"/>>];
+	LensMount -- FMount;
+	Linearity [label=
+    <<b>Linearity</b><BR ALIGN="LEFT"
+    />99.0%<BR ALIGN="CENTER"/>>];
+	Camera -- Linearity;
+	Resolution [label=
+    <<b>Resolution</b>>];
+	Camera -- Resolution;
+	Resolution -- Binning;
+	PixelSize [label=
+    <<b>Pixel Size</b>>];
+	Resolution -- PixelSize;
+	pixelSizeVal [label=
+    <<b>16 x 16</b>>];
+	PixelSize -- pixelSizeVal;
+	NumberOfPixels [label=
+    <<b>Number of Pixels</b><BR ALIGN="LEFT"
+    />320000<BR ALIGN="CENTER"/>>];
+	Resolution -- NumberOfPixels;
+	ImageArea [label=
+    <<b>Image Area</b>>];
+	Resolution -- ImageArea;
+	imageAreaVal [label=
+    <<b>25.6mm x 3.2mm</b>>];
+	ImageArea -- imageAreaVal;
+	OperatingTemperature [label=
+    <<b>Operating Temperature</b><BR ALIGN="LEFT"
+    />-61.075 Celsius<BR ALIGN="CENTER"/>>];
+	Camera -- OperatingTemperature;
+	Noise [label=
+    <<b>Noise</b>>];
+	Camera -- Noise;
+	CoolingTemperature [label=
+    <<b>Cooling Temperature</b>>];
+	Noise -- CoolingTemperature;
+	coolTempVal [label=
+    <<b>-80 Celsius</b>>];
+	CoolingTemperature -- coolTempVal;
+	DarkNoise [label=
+    <<b>Dark Noise</b>>];
+	Noise -- DarkNoise;
+	darkNoiseVal [label=
+    <<b>1.0E-4 Counts per second</b>>];
+	DarkNoise -- darkNoiseVal;
+	ElectronicNoise [label=
+    <<b>Electronic Noise</b>>];
+	Noise -- ElectronicNoise;
+	elecNoiseVal1 [label=
+    <<b>0 Electrons per pixel per second</b>>];
+	ElectronicNoise -- elecNoiseVal1;
+	elecNoiseVal2 [label=
+    <<b>0 Celsius</b>>];
+	ElectronicNoise -- elecNoiseVal2;
+	ReadNoise [label=
+    <<b>ReadNoise</b>>];
+	Noise -- ReadNoise;
+	readNoiseVal [label=
+    <<b>8.5 Electrons</b>>];
+	ReadNoise -- readNoiseVal;
+	DetectionEfficiency [label=
+    <<b>Detection Efficiency</b>>];
+	Camera -- DetectionEfficiency;
+	detEffVal1 [label=
+    <<b>0.0%</b>>];
+	DetectionEfficiency -- detEffVal1;
+	detEffVal2 [label=
+    <<b>550nm</b>>];
+	DetectionEfficiency -- detEffVal2;
+	Detector [label=
+    <<b>Detector</b>>];
+	ActiveDevices -- Detector;
+	APD [label=
+    <<b>APD</b>>];
+	Detector -- APD;
+	Source [label=
+    <<b>Source</b>>];
+	ActiveDevices -- Source;
+	Laser [label=
+    <<b>Laser</b>>];
+	Source -- Laser;
+	}
+}
