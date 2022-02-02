@@ -22,85 +22,24 @@ int main(int argc, char* argv[])
   AT_32 at32_userInput;
   AT_U32 atu32_ret, atu32_noFrames, atu32_frameSize, atu32_noSubImages;
   char *  sz_fileName = new char[MAX_PATH];
+  char * sz_xmlFileName = new char[MAX_PATH];
   char *  sz_error = new char[MAX_PATH];
   float * imageBuffer;
   size_t strLength;
   memset(sz_fileName, '\0', MAX_PATH);
   memset(sz_error, '\0', MAX_PATH);
 
-  at32_userInput = getUserInput();
-  while(at32_userInput != 0) {
-    if(at32_userInput == 1) {
-      atu32_ret = ATSIF_SetFileAccessMode(ATSIF_ReadAll);
-      if(atu32_ret != ATSIF_SUCCESS) {
-        printf("Could not set File access Mode. Error: %u\n", atu32_ret);
+  if (sizeof(argv) > 1 && argv[1] != nullptr) {
+      sz_fileName = argv[1];
+
+      if (argv[2] != nullptr) {
+          sz_xmlFileName = argv[2];
       }
       else {
-        printf("File to open : ");
-        fgetc(stdin);
-        fgets(sz_fileName, MAX_PATH, stdin);
-        strLength = strlen(sz_fileName);
-        sz_fileName[strLength - 1] = '\0';
-        atu32_ret = ATSIF_ReadFromFile(sz_fileName);
-        if(atu32_ret != ATSIF_SUCCESS) {
-          printf("Could not open File : %s.\nError: %u\n", sz_fileName,atu32_ret);
-        }
-        else {
-          atu32_ret = ATSIF_GetNumberFrames(ATSIF_Signal, &atu32_noFrames);
-          if(atu32_ret != ATSIF_SUCCESS) {
-            printf("Could not Get Number Frames. Error: %u\n", atu32_ret);
-          }
-          else {
-            printf("Image contains %u frames.\n", atu32_noFrames);
-            atu32_ret = ATSIF_GetFrameSize(ATSIF_Signal, &atu32_frameSize);
-            if(atu32_ret != ATSIF_SUCCESS) {
-              printf("Could not Get Frame Size. Error: %u\n", atu32_ret);
-            }
-            else {
-              printf("Each frame contains %u pixels.\n", atu32_frameSize);
-              atu32_ret = ATSIF_GetNumberSubImages(ATSIF_Signal, &atu32_noSubImages);
-              if(atu32_ret != ATSIF_SUCCESS) {
-                printf("Could not Get Number Sub Images. Error: %u\n", atu32_ret);
-              }
-              }printf("Each frame contains %u sub images.\n", atu32_noSubImages);
-              for(AT_U32 i = 0; i < atu32_noSubImages; ++i) {
-                AT_U32 atu32_left,atu32_bottom,atu32_right,atu32_top,atu32_hBin, atu32_vBin;
-                printf("SubImage %u Properties:\n", (i + 1));
-                atu32_ret = ATSIF_GetSubImageInfo(ATSIF_Signal,
-                                                  i,
-                                                  &atu32_left,&atu32_bottom,
-                                                  &atu32_right,&atu32_top,
-                                                  &atu32_hBin,&atu32_vBin);
-                if(atu32_ret != ATSIF_SUCCESS) {
-                  printf("Could not Get Sub Image Info. Error: %u\n", atu32_ret);
-                }
-                else {
-                  printf("\tleft\t: %u\tbottom\t: %u\n", atu32_left, atu32_bottom);
-                  printf("\tright\t: %u\ttop\t: %u\n", atu32_right, atu32_top);
-                  printf("\thBin\t: %u\tvBin\t: %u\n", atu32_hBin, atu32_vBin);
-                }
-              }
-              imageBuffer  = new float[atu32_frameSize];
-              memset(imageBuffer, 0, atu32_frameSize);
-
-
-              atu32_ret = ATSIF_GetFrame(ATSIF_Signal,0, imageBuffer, atu32_frameSize);
-              if(atu32_ret != ATSIF_SUCCESS) {
-                printf("Could not Get Frame. Error: %u\n", atu32_ret);
-              }
-              else {
-                printf("The first 20 pixel values are : \n");
-                for(int i = 0; i < 20; ++i) {
-                  printf("%f\n", imageBuffer[i]);
-                }
-              }
-              delete [] imageBuffer;
-          }
-        }
+        sz_xmlFileName = "sif.xml";
       }
 
-    }
-    else if(at32_userInput == 2) {
+    
       char *  sz_propertyName = new char[MAX_PATH];
       memset(sz_propertyName, '\0', MAX_PATH);
       char *  sz_propertyValue = new char[MAX_PATH];
@@ -126,18 +65,16 @@ int main(int argc, char* argv[])
         printf("Could not set File access Mode. Error: %u\n", atu32_ret);
       }
       else {
-        printf("File to open : ");
-        fgetc(stdin);
-        fgets(sz_fileName, MAX_PATH, stdin);
-        strLength = strlen(sz_fileName);
-        sz_fileName[strLength - 1] = '\0';
+        printf("Try to open file: ");
+        printf(sz_fileName);
+        printf("\n");
         atu32_ret = ATSIF_ReadFromFile(sz_fileName);
         if(atu32_ret != ATSIF_SUCCESS) {
           printf("Could not open File : %s.\nError: %u\n", sz_fileName,atu32_ret);
         }
 
         ofstream xmlSifFile;
-        xmlSifFile.open("sif.xml");
+        xmlSifFile.open(sz_xmlFileName);
         xmlSifFile << "<?xml version=<\"1.0\" encoding=\"UTF - 8\"?>\n";
         
         xmlSifFile << "<properties>\n";
@@ -148,19 +85,19 @@ int main(int argc, char* argv[])
             atu32_ret = ATSIF_GetPropertyValue(ATSIF_Signal, propertyNames[i], sz_propertyValue, MAX_PATH);
             if (atu32_ret != ATSIF_SUCCESS) {
                 retrieveErrorCode(atu32_ret, sz_error);
-                printf("Could not get Property Value.\nError code : %u\nError Mesage : %s", atu32_ret, sz_error);
+                printf("Could not get Property Value '%s'.\nError code : %u\nError Message : %s\n\n", propertyNames[i], atu32_ret, sz_error);
             }
             else {
-                printf("Property: \"%s\"  has Value : \"%s\"\n", propertyNames[i],sz_propertyValue);
+                // printf("Property: \"%s\"  has Value : \"%s\"\n", propertyNames[i],sz_propertyValue);
             }
             atu32_ret = ATSIF_GetPropertyType(ATSIF_Signal, propertyNames[i], &pType);
             if (atu32_ret != ATSIF_SUCCESS) {
                 retrieveErrorCode(atu32_ret, sz_error);
-                printf("Could not get Property Type.\nError code : %u\nError Message : %s\n\n", atu32_ret, sz_error);
+                printf("Could not get Property Type of '%s'.\nError code : %u\nError Message : %s\n\n", propertyNames[i], atu32_ret, sz_error);
             }
             else {
                 retrievePropertyType(pType, sz_propertyType);
-                printf("Property Type : %s\n\n", sz_propertyType);
+                // printf("Property Type : %s\n\n", sz_propertyType);
             }
             xmlSifFile << "\t<property name=\"";
             xmlSifFile << propertyNames[i];
@@ -174,37 +111,19 @@ int main(int argc, char* argv[])
         xmlSifFile << "</properties>\n";
         
         xmlSifFile.close();
-
-        printf("Property : ");
-        fflush(stdin);
-        fgets(sz_propertyName, MAX_PATH, stdin);
-        strLength = strlen(sz_propertyName);
-        sz_propertyName[strLength - 1] = '\0';
-        atu32_ret = ATSIF_GetPropertyValue(ATSIF_Signal, sz_propertyName, sz_propertyValue, MAX_PATH);
-        if(atu32_ret != ATSIF_SUCCESS) {
-          retrieveErrorCode(atu32_ret, sz_error);
-          printf("Could not get Property Value.\nError code : %u\nError Mesage : %s", atu32_ret, sz_error);
-        }
-        else {
-          printf("Property Value : %s\n", sz_propertyValue);
-        }
-        atu32_ret = ATSIF_GetPropertyType(ATSIF_Signal, sz_propertyName, &pType);
-        if(atu32_ret != ATSIF_SUCCESS) {
-          retrieveErrorCode(atu32_ret, sz_error);
-          printf("Could not get Property Type.\nError code : %u\nError Mesage : %s", atu32_ret, sz_error);
-        }
-        else {
-          retrievePropertyType(pType, sz_propertyType);
-          printf("Property Value : %s\n", sz_propertyType);
-        }
+        printf("\n");
+        printf("Data successfully written into ");
+        printf(sz_xmlFileName);
+        printf("\n");
+        
       }
-    }
-    else {
-      printf("Invalid option. Try Again!\n");
-    }
-    at32_userInput = getUserInput();
   }
-  delete [] sz_fileName;
+  else {
+  printf("No filename given. Application will terminate.\n\n");
+  }
+  
+  //delete[] sz_fileName;
+  //delete[] sz_xmlFileName;
   system("PAUSE");
         return 0;
 }

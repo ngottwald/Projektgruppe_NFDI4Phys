@@ -1,1 +1,2 @@
 C:\Users\josef\workspace\SIFReaderSDK\x64\Debug\SIFReaderSDK.exe
+C:\Users\josef\workspace\Projektgruppe_NFDI4Phys\SIFReaderSDK\x64\Debug\SIFReaderSDK.exe
