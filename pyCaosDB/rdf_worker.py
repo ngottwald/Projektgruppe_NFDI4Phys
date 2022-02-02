@@ -157,6 +157,7 @@ class RDFWorker:
         container = self.db.Container()
         container_input = []
 
+        # create RecordType
         for recordTypeName in self.recordTypes:
             
             for prop in self.properties[recordTypeName]:  
@@ -164,9 +165,13 @@ class RDFWorker:
 
             container_input.append(self.recordTypes[recordTypeName])                
 
-        container.extend(container_input)
-        container.insert()
+        try:
+            container.extend(container_input)
+            container.insert()
+        except:
+            print("RecordType still exists")
 
+        # Write data
         for recordTypeName in self.recordTypes:
             self.createRecord(recordTypeName)
             self.records[recordTypeName].insert()
