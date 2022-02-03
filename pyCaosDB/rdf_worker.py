@@ -84,12 +84,12 @@ class RDFWorker:
         response = self.db.execute_query(f'FIND RECORD "{recordName}"')
         xmlStringTree = etree.tostring(response.to_xml(), pretty_print=True)
         # TODO: Parse into rdf graph
-        self.parseXMlIntoRDF(response.to_xml())
-        file1 = open(fileName, 'wb')
-        file1.write(xmlStringTree)
-        file1.close()
+        self.parseXMlIntoRDF(response.to_xml(), fileName)
+        # file1 = open(fileName, 'wb')
+        # file1.write(xmlStringTree)
+        # file1.close()
 
-    def parseXMlIntoRDF(self, xmlRoot):
+    def parseXMlIntoRDF(self, xmlRoot, fileName):
         graph = Graph()
         rdfString =     '<?xml version="1.0"?> \n\
 \t<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#" \n\
@@ -115,7 +115,7 @@ class RDFWorker:
         rdfString += f'\t\t</owl:NamedIndividual> \n'
         rdfString += '</rdf:RDF>'
 
-        file1 = open('test.rdf', 'w')
+        file1 = open(fileName, 'w')
         file1.write(rdfString)
         file1.close()
 
