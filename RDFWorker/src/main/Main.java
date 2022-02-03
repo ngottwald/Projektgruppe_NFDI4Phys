@@ -25,6 +25,7 @@ class AdapterWindow {
 	
 	JButton importSifButton = new JButton("Import sif file");
 	JButton openFileChooserButton = new JButton("Select sif file");
+	JButton convertButton = new JButton("Convert sif file");
 	
 	JLabel filePathLabel = new JLabel();
 	
@@ -40,7 +41,7 @@ class AdapterWindow {
         public void actionPerformed(ActionEvent e) {
             if(e.getSource() == openFileChooserButton){
             	JFileChooser chooser = new JFileChooser();
-                // Dialog zum Oeffnen von Dateien anzeigen
+ 
                 int chooserResult = chooser.showOpenDialog(null);
                 
                 if(chooserResult == JFileChooser.APPROVE_OPTION)
@@ -49,7 +50,7 @@ class AdapterWindow {
                 	importSifButton.setEnabled(true);
                 	filePathLabel.setText(sifFilePath);
                 	
-                	System.out.println("Die zu öffnende Datei ist: " +
+                	System.out.println("Die zu ï¿½ffnende Datei ist: " +
                             sifFilePath);
                 }
             } else if(e.getSource() == importSifButton) {
@@ -66,17 +67,34 @@ class AdapterWindow {
 						System.out.println(e1.getMessage());
 						e1.printStackTrace();
 					}
+            } else if(e.getSource() == convertButton) {
+            	try {
+        			Input input = new Input();
+        			input.input("input/experiments");
+        			Output output = new Output();
+        			output.output(input.getExperiment(), "output//");
+        		} catch (ParserConfigurationException ex) {
+        			// TODO Auto-generated catch block
+        			ex.printStackTrace();
+        		} catch (SAXException ex) {
+        			// TODO Auto-generated catch block
+        			ex.printStackTrace();
+        		} catch (IOException ex) {
+        			// TODO Auto-generated catch block
+        			ex.printStackTrace();
+        		}            	
             }
         }
     } 
 	
 	public void prepareGUI() {
 		frame.setTitle("NFDI4Phys");
-		frame.setSize(500, 200);
+		frame.setSize(500, 150);
 		
 		panel.add(openFileChooserButton);
 		panel.add(filePathLabel);
 		panel.add(importSifButton);
+		panel.add(convertButton);
 		frame.getContentPane().add(panel);		
 		
 		frame.setVisible(true);
@@ -84,7 +102,8 @@ class AdapterWindow {
 		
 		openFileChooserButton.addActionListener(new onClickHandler());
 		importSifButton.addActionListener(new onClickHandler());
-		importSifButton.setEnabled(false);;
+		importSifButton.setEnabled(false);
+		convertButton.addActionListener(new onClickHandler());
 	}
 }
 
@@ -92,23 +111,28 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		new AdapterWindow();
         
-		try {
-			Input input = new Input();
-			input.input("input/experiments");
-			Output output = new Output();
-			output.output(input.getExperiment(), "output//");
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
+//		try {
+//			Input input = new Input();
+//			input.input("input/experiments");
+//			Output output = new Output();
+//			output.output(input.getExperiment(), "output//");
+//		} catch (ParserConfigurationException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SAXException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		try {			
+			ParseRdf rdf = new ParseRdf("output/2021-11-15.owl");
+			rdf.printExperiment();
+		}  catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ParseRdf rdf = new ParseRdf("output/2021-11-15.owl");
-		rdf.printExperiment();
 		
 		// Visual v = new Visual(rdf.getExperiment());
 	}		
