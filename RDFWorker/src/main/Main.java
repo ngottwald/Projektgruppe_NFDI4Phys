@@ -31,7 +31,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		ParseRdf rdf = new ParseRdf("output/2021-11-15.owl");
-		rdf.printExperiment();
+		//rdf.printExperiment();
 		
 		Visual v = new Visual(rdf.getExperiment());
 	}
