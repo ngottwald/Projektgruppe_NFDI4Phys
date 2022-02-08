@@ -1,6 +1,6 @@
 import rdflib
 import datetime
-from rdflib import URIRef, Literal, BNode
+from rdflib import Graph, URIRef, Literal, BNode
 from lxml import etree
 
 class Record:
@@ -84,8 +84,39 @@ class RDFWorker:
         response = self.db.execute_query(f'FIND RECORD "{recordName}"')
         xmlStringTree = etree.tostring(response.to_xml(), pretty_print=True)
         # TODO: Parse into rdf graph
-        file1 = open(fileName, 'wb')
-        file1.write(xmlStringTree)
+        self.parseXMlIntoRDF(response.to_xml(), fileName)
+        # file1 = open(fileName, 'wb')
+        # file1.write(xmlStringTree)
+        # file1.close()
+
+    def parseXMlIntoRDF(self, xmlRoot, fileName):
+        graph = Graph()
+        rdfString =     '<?xml version="1.0"?> \n\
+\t<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#" \n\
+\t\txml:base="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys" \n\
+\t\txmlns:owl="http://www.w3.org/2002/07/owl#" \n\
+\t\txmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" \n\
+\t\txmlns:xml="http://www.w3.org/XML/1998/namespace" \n\
+\t\txmlns:xsd="http://www.w3.org/2001/XMLSchema#" \n\
+\t\txmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" \n\
+\t\txmlns:Geiger="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/"> \n\n\n'
+
+        for child in xmlRoot:
+            if child.tag == 'Record':
+                rdfString += f'\t\t<owl:NamedIndividual rdf:about="{child.get("name")}"> \n'
+                for subchild in child:
+                    subchildName = subchild.get("name")
+                    if(subchildName != None and len(subchildName.split('#')) > 1):
+                        rdfString += f'\t\t\t<{subchildName.split("#")[1]}'
+                        if subchild.get('unit') != None:
+                            rdfString += f' rdf:datatype="{subchild.get("unit")}"'
+                        rdfString += f'>{subchild.text}</{subchildName.split("#")[1]}>\n'
+
+        rdfString += f'\t\t</owl:NamedIndividual> \n'
+        rdfString += '</rdf:RDF>'
+
+        file1 = open(fileName, 'w')
+        file1.write(rdfString)
         file1.close()
 
     def checkForExcistingRecordType(self, recordTypeName):
@@ -126,6 +157,7 @@ class RDFWorker:
         container = self.db.Container()
         container_input = []
 
+        # create RecordType
         for recordTypeName in self.recordTypes:
             
             for prop in self.properties[recordTypeName]:  
@@ -133,9 +165,13 @@ class RDFWorker:
 
             container_input.append(self.recordTypes[recordTypeName])                
 
-        container.extend(container_input)
-        container.insert()
+        try:
+            container.extend(container_input)
+            container.insert()
+        except:
+            print("RecordType still exists")
 
+        # Write data
         for recordTypeName in self.recordTypes:
             self.createRecord(recordTypeName)
             self.records[recordTypeName].insert()

@@ -1,0 +1,37 @@
+<?xml version="1.0"?> 
+	<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#" 
+		xml:base="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys" 
+		xmlns:owl="http://www.w3.org/2002/07/owl#" 
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+		xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema#" 
+		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+		xmlns:Geiger="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/"> 
+
+
+		<owl:NamedIndividual rdf:about="Camera 2022-01-23 16:45:00.399284"> 
+			<Frame_Binning>1600x200</Frame_Binning>
+			<F-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">False</F-Mount>
+			<Wavelength rdf:datatype="http://www.w3.org/2001/XMLSchema#nm">550</Wavelength>
+			<Maximum_Readout_Rate rdf:datatype="http://www.w3.org/2001/XMLSchema#MHz">649</Maximum_Readout_Rate>
+			<Binning>1600x200</Binning>
+			<T-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">False</T-Mount>
+			<Image_Area>25.6x3.2</Image_Area>
+			<Vertical_Clock_Speed rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.68e-06</Vertical_Clock_Speed>
+			<Frame_Rate rdf:datatype="http://www.w3.org/2001/XMLSchema#MHz">3.33333E-7</Frame_Rate>
+			<Detection_Efficiency>0.0%</Detection_Efficiency>
+			<Back_Ilumination rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">True</Back_Ilumination>
+			<Read_Noise rdf:datatype="http://www.w3.org/2001/XMLSchema#electrons_per_pixel_per_second">8.5</Read_Noise>
+			<Fringe_Supression rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">True</Fringe_Supression>
+			<C-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">False</C-Mount>
+			<Dark_Noise rdf:datatype="http://www.w3.org/2001/XMLSchema#electrons_per_pixel_per_second">1.0E-4</Dark_Noise>
+			<Linearity>>99.0%</Linearity>
+			<Time_Stamp_Accuracy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</Time_Stamp_Accuracy>
+			<Number_Of_Pixels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">320000</Number_Of_Pixels>
+			<Quantum_Efficiency>0.0%</Quantum_Efficiency>
+			<Pixel_Size rdf:datatype="http://www.w3.org/2001/XMLSchema#micro_meter">16x16</Pixel_Size>
+			<Well_Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#electrons_per_pixel">200000</Well_Depth>
+			<Cooling_Temperature rdf:datatype="http://www.w3.org/2001/XMLSchema#Celsius">-80</Cooling_Temperature>
+			<Operating_Temperature rdf:datatype="http://www.w3.org/2001/XMLSchema#Celsius">-61.075</Operating_Temperature>
+		</owl:NamedIndividual> 
+</rdf:RDF>
