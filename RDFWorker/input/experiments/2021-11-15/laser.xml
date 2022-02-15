@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<property name="Type" value="CW" type="char * "/>
+	<property name="Power" value="1" type="float"/>
+	<property name="Wavelength" value="656.15" type="float"/>
+</properties>

@@ -24,7 +24,7 @@ public class TestOutput{ // maybe some sort of sanity check for the output?
 
     @Test
     public void testOutputOne() throws IOException, ParserConfigurationException, SAXException{
-    	Input in = new Input();
+    	Input in = new Input("Test", "Test", "Test");
     	in.input("input/experiments");
     	Output ou = new Output();
     	boolean r = ou.output(in.getExperiment(), "testing//output//");
@@ -34,7 +34,7 @@ public class TestOutput{ // maybe some sort of sanity check for the output?
     @Test
     public void testOutputTwo() throws IOException, ParserConfigurationException, SAXException{
     	
-    	Input in = new Input();
+    	Input in = new Input("Test", "Test", "Test");
     	in.input("input/experiments");
     	Output ou = new Output();
     	boolean r = ou.output(in.getExperiment(), "testing//output//");

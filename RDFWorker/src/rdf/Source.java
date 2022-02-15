@@ -10,10 +10,10 @@ public class Source extends Device{
 	
 	// spectrum
 	private int bandwidth; // in nanometres
-	private int wavelength; // in nanometres;
+	private double wavelength; // in nanometres;
 	
 	// power
-	private int milliwat;
+	private double milliwat;
 	private double powerStability; // in percent
 	private double noise; // in percent
 	
@@ -53,19 +53,19 @@ public class Source extends Device{
 		this.bandwidth = bandwidth;
 	}
 
-	public int getWavelength() {
+	public double getWavelength() {
 		return wavelength;
 	}
 
-	public void setWavelength(int wavelength) {
+	public void setWavelength(double wavelength) {
 		this.wavelength = wavelength;
 	}
 
-	public int getMilliwat() {
+	public double getMilliwat() {
 		return milliwat;
 	}
 
-	public void setMilliwat(int milliwat) {
+	public void setMilliwat(double milliwat) {
 		this.milliwat = milliwat;
 	}
 

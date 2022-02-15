@@ -31,7 +31,7 @@ public class ParseRdf {
 	 */
 	public boolean parse(String file) {
 		experiment = new Experiment();
-		experiment.setName(file.substring(file.indexOf("/")+1,file.indexOf(".")));
+		experiment.setName(file.substring(file.lastIndexOf("/")+1,file.indexOf(".")));
 		
 		Dataset d = RDFDataMgr.loadDataset(file);
 		
@@ -77,13 +77,17 @@ public class ParseRdf {
 	 */
 	public void evaluateAll(List<String> statements) {
 		
+		List<String> ex = new ArrayList<String>();
 		List<String> camera = new ArrayList<String>();
 		List<String> apd = new ArrayList<String>();
 		List<String> laser = new ArrayList<String>();
 		
 		for(String curr : statements) {
-			String[] split = curr.split("\\s+");			
+			String[] split = curr.split("\\s+");		
 			
+			if(split[0].equals("Experiment")) {
+				ex.add(split[1] + " " + split[2]);
+			}
 			if(split[0].equals("Camera")) {
 				camera.add(split[1] + " " + split[2]);
 			}
@@ -94,10 +98,17 @@ public class ParseRdf {
 				laser.add(split[1] + " " + split[2]);
 			}			
 		}
+		Experiment e = evaluateExperiment(ex);
 		Camera c = evaluateCamera(camera);
 		//evaluateAPD(apd);
-		//evaluateLaser(laser);
+		Laser l = evaluateLaser(laser);
+		experiment.setName(e.getName());
+		experiment.setTimestamp(e.getTimestamp());
+		experiment.setUniversity(e.getUniversity());
+		experiment.setRoom(e.getRoom());
+		experiment.setMembers(e.getMembers());
 		experiment.addDevice(c);
+		experiment.addDevice(l);
 	}
 	
 	/**
@@ -105,8 +116,7 @@ public class ParseRdf {
 	 * @param statements is the list of statements corresponding to cameras.
 	 * @return the generated Camera class of the rdf.
 	 */
-	public Camera evaluateCamera(List<String> statements) {
-		
+	public Camera evaluateCamera(List<String> statements) {		
 		Camera camera = new Camera();
 		
 		for(String s : statements) {
@@ -206,8 +216,65 @@ public class ParseRdf {
 		
 	}
 	
-	public void evaluateLaser(List<String> statements) {
+	/** Evaluates the laser part of the rdf.
+	 * @param statements is the list of statements corresponding to lasers.
+	 * @return the generated Laser class of the rdf.
+	 */
+	public Laser evaluateLaser(List<String> statements) {		
+		Laser laser = new Laser();
 		
+		for(String s : statements) {
+			String[] split = s.split("\\s+");
+			if(split[0].equals("type") && !split[1].contains("NamedIndividual")) {
+				if(split[1].contains("CW")) {
+					laser = new CW();
+				}
+				else if(split[1].contains("Pulsed")) {
+					laser = new Pulsed();
+				}
+			}
+		}
+		for(String s : statements) {
+			String[] split = s.split("\\s+");			
+
+			if(split[0].equals("Power")) {
+				laser.setMilliwat(Double.parseDouble(split[1].substring(0,split[1].indexOf("^"))));
+			}
+			if(split[0].equals("Wavelength")) {
+				laser.setWavelength(Double.parseDouble(split[1].substring(0,split[1].indexOf("^"))));
+			}
+		}
+		return laser;
+	}
+	
+	/** Evaluates the experiment part of the rdf.
+	 * @param statements is the list of statements corresponding to experiment.
+	 * @return the generated Experiment class of the rdf.
+	 */
+	public Experiment evaluateExperiment(List<String> statements) {		
+		Experiment experiment = new Experiment();
+		
+		for(String s : statements) {
+			String[] split = s.split("\\s+");			
+
+			if(split[0].equals("Id")) {
+				experiment.setName(split[1].substring(0,split[1].length()));
+			}
+			if(split[0].equals("Timestamp")) {
+				experiment.setTimestamp(split[1].substring(0,split[1].length()));
+			}
+			if(split[0].equals("University")) {
+				experiment.setUniversity(split[1].substring(0,split[1].length()));
+			}
+			if(split[0].equals("Room")) {
+				experiment.setRoom(split[1].substring(0,split[1].length()));
+			}
+			if(split[0].equals("Members")) {
+				experiment.setMembers(split[1].substring(0,split[1].length()));
+			}
+
+		}
+		return experiment;
 	}
 	
 	/**
@@ -252,6 +319,12 @@ public class ParseRdf {
 			}
 			if(d instanceof Laser) {
 				System.out.println("Laser");
+				if(d instanceof CW) {
+					CW cw = (CW) d;					
+					System.out.println("	Type: CW");
+					System.out.println("	Power: " + cw.getMilliwat() + "mW");
+					System.out.println("	Wavelength: " + cw.getWavelength() + "nm");
+				}
 			}
 		}
 	}

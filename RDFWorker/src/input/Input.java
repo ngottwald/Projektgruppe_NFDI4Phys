@@ -2,6 +2,10 @@ package input;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -12,6 +16,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import rdf.CW;
 import rdf.EMCCD;
 import rdf.Experiment;
 
@@ -19,21 +24,29 @@ public class Input {
 	
 	private Experiment experiment;
 	
+	public Input(String university, String room, String members) {
+		this.experiment = new Experiment();
+		//this.experiment.setName(UUID.randomUUID().toString());
+		this.experiment.setName("0000");
+		this.experiment.setTimestamp(new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()));
+		this.experiment.setUniversity(university);
+		this.experiment.setRoom(room);
+		this.experiment.setMembers(members);
+	}
+	
 	/**
 	 * Reads in the input folder and parsed the xml files depending on the format.
 	 * @throws ParserConfigurationException
 	 * @throws SAXException
 	 * @throws IOException
-	 */
-	
+	 */	
 	public boolean input(String directory) throws ParserConfigurationException, SAXException, IOException {
 		
-		experiment = new Experiment();
 		File dir = new File(directory);
 		File[] directoryListing = dir.listFiles();
 		if (directoryListing != null && directoryListing.length > 0) {
 		  for (File child : directoryListing) {
-			  experiment.setName(child.getName());
+			  //experiment.setName(child.getName());
 			  File[] exDir = child.listFiles();
 			  for(File exChild : exDir) {
 				  // get xml files that contain the sif data
@@ -156,14 +169,36 @@ public class Input {
 				         }
 				     }
 			  		  experiment.addDevice(emccd);
-			  	  }
-
-			      else if(child.getName().startsWith("spe")) {
-			    	// ...
-			    	  return false;
-			    	  }
+			  	  }				  
+				  // get xml files that contain the laser data
+			      else if(exChild.getName().startsWith("laser")) {
+			    	  CW cw = new CW();
+			  		
+			  		  DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				        .newInstance();
+			  		  DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			  		  Document document = documentBuilder.parse(exChild);
+			  		  NodeList nodeList = document.getElementsByTagName("*");
+			  		  for (int i = 0; i < nodeList.getLength(); i++) {
+			  			  Node node = nodeList.item(i);
+			  			  if (node.getNodeType() == Node.ELEMENT_NODE) {
+			  				  // the properties of the xml get read out and the correct values are assigned 
+			  				  if(node.getNodeName().equals("property")) {
+				        	   
+				        	     if(node.getAttributes().getNamedItem("name").getNodeValue().equals("Power")) {
+				        		     String value = node.getAttributes().getNamedItem("value").getNodeValue();
+				        		     cw.setMilliwat(Double.parseDouble(value));
+				        	     }
+				        	     if(node.getAttributes().getNamedItem("name").getNodeValue().equals("Wavelength")) {
+				        		     String value = node.getAttributes().getNamedItem("value").getNodeValue();
+				        		     cw.setWavelength(Double.parseDouble(value));
+				        	     }
+				             }
+				         }
+				     }
+			  		  experiment.addDevice(cw);
 			    }
-
+			}
 		    }
 		  } else {
 		    System.out.println("No files in directory");

@@ -14,21 +14,21 @@ public class TestInput{ // maybe check if every property is loaded?
 
     @Test
     public void testInputOne() throws ParserConfigurationException, SAXException, IOException{
-    	Input in = new Input();
+    	Input in = new Input("Test", "Test", "Test");
     	boolean r = in.input("input/experiments");
     	assertTrue(r == true);
     }
     
     @Test
     public void testInputTwo() throws ParserConfigurationException, SAXException, IOException{
-    	Input in = new Input();
+    	Input in = new Input("Test", "Test", "Test");
     	boolean r = in.input("testing/test");
     	assertTrue(r == false);
     }
     
     @Test
     public void testInputThree() throws ParserConfigurationException, SAXException, IOException{
-    	Input in = new Input();
+    	Input in = new Input("Test", "Test", "Test");
     	boolean r = in.input("input/experiments");
     	Experiment ex = in.getExperiment();
     	

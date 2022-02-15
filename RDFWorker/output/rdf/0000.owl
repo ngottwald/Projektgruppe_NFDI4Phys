@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#"
+     xml:base="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Geiger="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/">
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+	<owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Experiment">
+		<Id>0000</Id>
+		<Timestamp>2022.02.15.13.00.29</Timestamp>
+		<University>Uni_Siegen</University>
+		<Room>H-C3306</Room>
+		<Members>J.Matwich,N.Gottwald</Members>
+	</owl:NamedIndividual>
+	<owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser">
+		<rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW"/>
+		<Power rdf:datatype="http://www.w3.org/2001/XMLSchema#mW">1.0</Power>
+		<Wavelength rdf:datatype="http://www.w3.org/2001/XMLSchema#nm">656.15</Wavelength>
+	</owl:NamedIndividual>
+	<owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera">
+		<rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD"/>
+		<Back_Ilumination rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Back_Ilumination>
+		<Binning>1600x200</Binning>
+		<Cooling_Temperature rdf:datatype="http://www.w3.org/2001/XMLSchema#Celsius">-80</Cooling_Temperature>
+		<C-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</C-Mount>
+		<Dark_Noise rdf:datatype="http://www.w3.org/2001/XMLSchema#electrons_per_pixel_per_second">1.0E-4</Dark_Noise>
+		<Detection_Efficiency>0.0%</Detection_Efficiency>
+		<Frame_Binning>1600x200</Frame_Binning>
+		<Frame_Rate rdf:datatype="http://www.w3.org/2001/XMLSchema#MHz">3.33333E-7</Frame_Rate>
+		<Image_Area>25.6x3.2</Image_Area>
+		<F-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</F-Mount>
+		<Fringe_Supression rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Fringe_Supression>
+		<Linearity>>99.0%</Linearity>
+		<Maximum_Readout_Rate rdf:datatype="http://www.w3.org/2001/XMLSchema#MHz">649</Maximum_Readout_Rate>
+		<Number_Of_Pixels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">320000</Number_Of_Pixels>
+		<Operating_Temperature rdf:datatype="http://www.w3.org/2001/XMLSchema#Celsius">-61.075</Operating_Temperature>
+		<Pixel_Size rdf:datatype="http://www.w3.org/2001/XMLSchema#micro_meter">16x16</Pixel_Size>
+		<Quantum_Efficiency>0.0%</Quantum_Efficiency>
+		<Read_Noise rdf:datatype="http://www.w3.org/2001/XMLSchema#electrons_per_pixel_per_second">8.5</Read_Noise>
+		<Time_Stamp_Accuracy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</Time_Stamp_Accuracy>
+		<T-Mount rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</T-Mount>
+		<Vertical_Clock_Speed rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9.68E-6</Vertical_Clock_Speed>
+		<Wavelength rdf:datatype="http://www.w3.org/2001/XMLSchema#nm">550</Wavelength>
+		<Well_Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#electrons_per_pixel">200000</Well_Depth>
+	</owl:NamedIndividual>
+</rdf:RDF>

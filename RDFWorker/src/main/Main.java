@@ -6,11 +6,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
@@ -26,12 +29,20 @@ class AdapterWindow {
 	JButton importSifButton = new JButton("Import sif file");
 	JButton openFileChooserButton = new JButton("Select sif file");
 	JButton convertButton = new JButton("Convert sif file");
+	JLabel lbUni = new JLabel("University");
+	JTextField exUni = new JTextField("");
+	JLabel lbRm = new JLabel("Room number");
+	JTextField exRoom = new JTextField("");
+	JLabel lbMb = new JLabel("Team members");
+	JTextField exMember = new JTextField("");
 	
 	JLabel filePathLabel = new JLabel();
 	
 	String sifFilePath = null;
 	
-	JPanel panel = new JPanel();	
+	JPanel panel = new JPanel();
+	
+	BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
 	
 	AdapterWindow(){
 		prepareGUI();
@@ -50,7 +61,7 @@ class AdapterWindow {
                 	importSifButton.setEnabled(true);
                 	filePathLabel.setText(sifFilePath);
                 	
-                	System.out.println("Die zu ï¿½ffnende Datei ist: " +
+                	System.out.println("Die zu öffnende Datei ist: " +
                             sifFilePath);
                 }
             } else if(e.getSource() == importSifButton) {
@@ -69,7 +80,7 @@ class AdapterWindow {
 					}
             } else if(e.getSource() == convertButton) {
             	try {
-        			Input input = new Input();
+        			Input input = new Input(exUni.getText(), exRoom.getText(), exMember.getText());
         			input.input("input/experiments");
         			Output output = new Output();
         			output.output(input.getExperiment(), "output//");
@@ -83,19 +94,27 @@ class AdapterWindow {
         			// TODO Auto-generated catch block
         			ex.printStackTrace();
         		}            	
-            }
+            } 
         }
     } 
 	
 	public void prepareGUI() {
 		frame.setTitle("NFDI4Phys");
-		frame.setSize(500, 150);
+		frame.setSize(500, 250);
+		
+		panel.setLayout(layout);
 		
 		panel.add(openFileChooserButton);
 		panel.add(filePathLabel);
 		panel.add(importSifButton);
 		panel.add(convertButton);
-		frame.getContentPane().add(panel);		
+		panel.add(lbUni);
+		panel.add(exUni);
+		panel.add(lbRm);
+		panel.add(exRoom);
+		panel.add(lbMb);
+		panel.add(exMember);
+		frame.getContentPane().add(panel);
 		
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,31 +128,32 @@ class AdapterWindow {
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		new AdapterWindow();
+		//new AdapterWindow();
         
-//		try {
-//			Input input = new Input();
-//			input.input("input/experiments");
-//			Output output = new Output();
-//			output.output(input.getExperiment(), "output//");
-//		} catch (ParserConfigurationException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (SAXException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			Input input = new Input("Uni_Siegen", "H-C3306", "J.Matwich,N.Gottwald");
+			input.input("input/experiments");
+			Output output = new Output();
+			output.output(input.getExperiment(), "output/rdf//");
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ParseRdf rdf = null;
 		try {			
-			ParseRdf rdf = new ParseRdf("output/2021-11-15.owl");
-			rdf.printExperiment();
+			rdf = new ParseRdf("output/rdf/0000.owl");
+			//rdf.printExperiment();
 		}  catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		// Visual v = new Visual(rdf.getExperiment());
+		Visual v = new Visual(rdf.getExperiment());
 	}		
 }

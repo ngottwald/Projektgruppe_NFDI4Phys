@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 
 import guru.nidi.graphviz.engine.Format;
 import guru.nidi.graphviz.engine.Graphviz;
@@ -13,11 +14,19 @@ import rdf.*;
 
 public class Visual{
 	
+	/** Reads in an experiment and creates a png showing the graph of the experiment.
+	 * @param experiment the experiment that needs to be converted to a graph
+	 * @throws IOException
+	 */
 	public Visual(Experiment experiment) throws IOException{
 		writeDot(experiment);
 		createGraph(experiment.getName());
 	}
 	
+	/** Writes the dot graph th the corresponding experiment.
+	 * @param experiment the experiment that needs to be converted to a graph.
+	 * @throws IOException
+	 */
 	public void writeDot(Experiment experiment) throws IOException {
 		File src = new File("resources/graph.dot");
 		
@@ -30,6 +39,18 @@ public class Visual{
 	    out.println("	Experiment [label=\n"
 	    		+ "    <<b>Experiment</b><BR ALIGN=\"LEFT\"\n"
 	    		+ "    />" + experiment.getName() + "<BR ALIGN=\"CENTER\"/>>];");
+	    out.println("	University [label=\n"
+	    		+ "    <<b>University</b><BR ALIGN=\"LEFT\"\n"
+	    		+ "    />" + experiment.getUniversity() + "<BR ALIGN=\"CENTER\"/>>];");
+	    out.println("	Experiment -- University;");
+	    out.println("	Room [label=\n"
+	    		+ "    <<b>Room</b><BR ALIGN=\"LEFT\"\n"
+	    		+ "    />" + experiment.getRoom() + "<BR ALIGN=\"CENTER\"/>>];");
+	    out.println("	University -- Room;");
+	    out.println("	Members [label=\n"
+	    		+ "    <<b>Members</b><BR ALIGN=\"LEFT\"\n"
+	    		+ "    />" + experiment.getMembers() + "<BR ALIGN=\"CENTER\"/>>];");
+	    out.println("	University -- Members;");
 	    out.println("	ActiveDevices [label=\n"
 	    		+ "    <<b>Acitve Devices</b>>];");
 	    out.println("	ActiveDevices -- Experiment;");
@@ -213,8 +234,60 @@ public class Visual{
 	    	if(d instanceof Detector) {
 	    		// ...
 	    	}
-	    	if(d instanceof Source) {
-	    		// ...
+	    	if(d instanceof Laser) {
+	    		Source s = (Source) d;
+	    		
+	    		out.println("	Source [label=\n"
+	    				+ "    <<b>Source</b>>];");
+	    		out.println("	ActiveDevices -- Source;");
+	    		
+		    	out.println("	Laser [label=\n"
+		    				+ "    <<b>Laser</b>>];");
+		    	out.println("	Source -- Laser");
+		    		
+		    	if(d instanceof CW) {
+			    	out.println("	CW [label=\n"
+			    			+ "    <<b>CW</b>>];");
+			    	out.println("	Laser -- CW");
+		    	}
+		    	if(d instanceof Pulsed) {
+			    	out.println("	Pulsed [label=\n"
+			    			+ "    <<b>Pulsed</b>>];");
+			    	out.println("	Laser -- Pulsed");
+		    	}
+		    	if(d instanceof CW && d instanceof Pulsed) {
+			    	out.println("	CW/Pulsed [label=\n"
+			    			+ "    <<b>CW/Pulsed</b>>];");
+			    	out.println("	CW -- CW/Pulsed");
+			    	out.println("	Pulsed -- CW/Pulsed");
+	    		}
+	    		if(d instanceof LED) {
+		    		out.println("	LED [label=\n"
+		    				+ "    <<b>LED</b>>];");
+		    		out.println("	Source -- LED;");
+	    		}
+	    		out.println("	Spectrum [label=\n"
+	    				+ "    <<b>Spectrum</b>>];");
+	    		out.println("	Source -- Spectrum;");
+//	    		out.println("	Bandwidth [label=\n"
+//	    				+ "    <<b>Bandwidth</b>>];");
+//	    		out.println("	Spectrum -- Bandwidth;");
+//	    		out.println("	bandwidthVal [label=\n"
+//	    				+ "    <<b>" + s.getBandwidth() + " nm" + "</b>>];");
+//	    		out.println("	Bandwidth -- bandwidthVal;");
+	    		out.println("	Wavelength [label=\n"
+	    				+ "    <<b>Wavelength</b>>];");
+	    		out.println("	Spectrum -- Wavelength;");
+	    		out.println("	wavelengthVal [label=\n"
+	    				+ "    <<b>" + s.getWavelength() + " nm" + "</b>>];");
+	    		out.println("	Wavelength -- wavelengthVal;");
+	    		
+	    		out.println("	Power [label=\n"
+	    				+ "    <<b>Power</b>>];");
+	    		out.println("	Source -- Power;");
+	    		out.println("	powerVal [label=\n"
+	    				+ "    <<b>" + s.getMilliwat() + " mW" + "</b>>];");
+	    		out.println("	Power -- powerVal;");
 	    	}
 	    	if(d instanceof FrequencyConverter) {
 	    		// ...
@@ -227,13 +300,6 @@ public class Visual{
 		out.println("	APD [label=\n"
 				+ "    <<b>APD</b>>];");
 		out.println("	Detector -- APD;");
-		out.println("	Source [label=\n"
-				+ "    <<b>Source</b>>];");
-		out.println("	ActiveDevices -- Source;");
-		out.println("	Laser [label=\n"
-				+ "    <<b>Laser</b>>];");
-		out.println("	Source -- Laser;");
-	    
 	    out.println("	}");
 	    out.println("}");
 	    
@@ -241,10 +307,16 @@ public class Visual{
 	}
 	
 	
+	/** Creates a png based on a previously generated dot file.
+	 * @param name the filename of the created png.
+	 * @throws IOException
+	 */
 	public void createGraph(String name) throws IOException {
 		try (InputStream dot = getClass().getResourceAsStream("/graph.dot")) {
 		    MutableGraph g = new Parser().read(dot);
-		    Graphviz.fromGraph(g).width(6000).render(Format.PNG).toFile(new File("dot/example/" + name + ".png"));
+		    File f = new File("output/png/" + name + ".png");
+		    Files.deleteIfExists(f.toPath());
+		    Graphviz.fromGraph(g).width(6000).render(Format.PNG).toFile(new File("output/png/" + name + ".png"));
 		}
 	}
 }

@@ -19,7 +19,7 @@ public class Output {
 
 	public boolean output(Experiment experiment, String output) throws IOException {		
 		
-		File src = new File("rdf//NFDI4Phys.owl");
+		File src = new File("resources//NFDI4Phys.owl");
 		File dest = new File(output + experiment.getName() + ".owl");
 		if(dest.exists() && !dest.isDirectory()) {
 			dest.delete();			
@@ -29,8 +29,18 @@ public class Output {
 		FileWriter fw = new FileWriter(output + experiment.getName() + ".owl", true);
 		BufferedWriter bw = new BufferedWriter(fw);
 	    PrintWriter out= new PrintWriter(bw);
+	    
 		
 	    // The RDF-File gets written directly.
+	    
+		out.println("	<owl:NamedIndividual rdf:about=\"http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Experiment\">");
+		out.println("		<Id>" + experiment.getName() + "</Id>");
+		out.println("		<Timestamp>" + experiment.getTimestamp() + "</Timestamp>");
+		out.println("		<University>" + experiment.getUniversity() + "</University>");
+		out.println("		<Room>" + experiment.getRoom() + "</Room>");
+		out.println("		<Members>" + experiment.getMembers() + "</Members>");
+		out.println("	</owl:NamedIndividual>");
+	    
 		for(Device d : experiment.getDevices()) {
 			if(d instanceof Camera) {
 				if(d instanceof EMCCD) {
@@ -62,7 +72,6 @@ public class Output {
 					out.println("		<Wavelength rdf:datatype=\"http://www.w3.org/2001/XMLSchema#nm\">" + emccd.getWavelength() + "</Wavelength>");
 					out.println("		<Well_Depth rdf:datatype=\"http://www.w3.org/2001/XMLSchema#electrons_per_pixel\">" + emccd.getWellDepth() + "</Well_Depth>");
 					out.println("	</owl:NamedIndividual>");
-					out.println("</rdf:RDF>");
 				}
 				if(d instanceof CCD) {
 					// ...
@@ -92,7 +101,14 @@ public class Output {
 					
 				}
 				if(d instanceof Laser) {
-					// ...
+					if(d instanceof CW) {
+						CW cw = (CW) d;
+						out.println("	<owl:NamedIndividual rdf:about=\"http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser\">");
+						out.println("		<rdf:type rdf:resource=\"http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW\"/>");
+						out.println("		<Power rdf:datatype=\"http://www.w3.org/2001/XMLSchema#mW\">" + cw.getMilliwat() + "</Power>");
+						out.println("		<Wavelength rdf:datatype=\"http://www.w3.org/2001/XMLSchema#nm\">" + cw.getWavelength() + "</Wavelength>");						
+						out.println("	</owl:NamedIndividual>");
+					}
 				}
 				if(d instanceof Photodiode) {
 					// ...
@@ -101,7 +117,8 @@ public class Output {
 					// ...
 				}
 			}
-		}	    
+		}
+		out.println("</rdf:RDF>");
 	    out.close();
 		
 		return true;

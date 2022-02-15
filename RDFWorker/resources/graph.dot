@@ -3,7 +3,19 @@ graph G {
 	subgraph {
 	Experiment [label=
     <<b>Experiment</b><BR ALIGN="LEFT"
-    />2021-11-15<BR ALIGN="CENTER"/>>];
+    />0000<BR ALIGN="CENTER"/>>];
+	University [label=
+    <<b>University</b><BR ALIGN="LEFT"
+    />Uni_Siegen<BR ALIGN="CENTER"/>>];
+	Experiment -- University;
+	Room [label=
+    <<b>Room</b><BR ALIGN="LEFT"
+    />H-C3306<BR ALIGN="CENTER"/>>];
+	University -- Room;
+	Members [label=
+    <<b>Members</b><BR ALIGN="LEFT"
+    />J.Matwich,N.Gottwald<BR ALIGN="CENTER"/>>];
+	University -- Members;
 	ActiveDevices [label=
     <<b>Acitve Devices</b>>];
 	ActiveDevices -- Experiment;
@@ -154,17 +166,35 @@ graph G {
 	detEffVal2 [label=
     <<b>550nm</b>>];
 	DetectionEfficiency -- detEffVal2;
+	Source [label=
+    <<b>Source</b>>];
+	ActiveDevices -- Source;
+	Laser [label=
+    <<b>Laser</b>>];
+	Source -- Laser
+	CW [label=
+    <<b>CW</b>>];
+	Laser -- CW
+	Spectrum [label=
+    <<b>Spectrum</b>>];
+	Source -- Spectrum;
+	Wavelength [label=
+    <<b>Wavelength</b>>];
+	Spectrum -- Wavelength;
+	wavelengthVal [label=
+    <<b>656.15 nm</b>>];
+	Wavelength -- wavelengthVal;
+	Power [label=
+    <<b>Power</b>>];
+	Source -- Power;
+	powerVal [label=
+    <<b>1.0 mW</b>>];
+	Power -- powerVal;
 	Detector [label=
     <<b>Detector</b>>];
 	ActiveDevices -- Detector;
 	APD [label=
     <<b>APD</b>>];
 	Detector -- APD;
-	Source [label=
-    <<b>Source</b>>];
-	ActiveDevices -- Source;
-	Laser [label=
-    <<b>Laser</b>>];
-	Source -- Laser;
 	}
 }
