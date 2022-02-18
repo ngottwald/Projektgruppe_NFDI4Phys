@@ -2,6 +2,7 @@ import caosdb as db
 import matplotlib
 import matplotlib.pyplot as plt
 import rdf_worker
+import sys
 
 
 def read_from_caosdb(db):
@@ -12,6 +13,7 @@ def read_from_caosdb(db):
     pass
 
 def main():
+    print(f'Number of arguments {len(sys.argv)}')
     # Shows a few examples how to use the CaosDB library.
     conf = dict(db.configuration.get_config().items("Connection"))
     print("##### Config:\n{}\n".format(conf))

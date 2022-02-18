@@ -24,7 +24,9 @@ class RDFWorker:
 
         self.records = {}
         self.properties = {}
-        self.recordTypes = {}        
+        self.recordTypes = {}
+
+        self.id = 0;        
 
     """
 
@@ -71,6 +73,8 @@ class RDFWorker:
         for prop in self.properties[recordTypeName]:
             # TODO: Maybe some logic to check if the property has a valid value necessary
             propertyElement = self.db.Property(name=prop.Name, value=prop.Value)
+            if prop.ValueType == self.db.DOUBLE:
+                prop.Value = float(prop.Value)
             recordElement.add_property(name=prop.Name, value=prop.Value)
 
         self.records[recordTypeName] = recordElement
@@ -82,12 +86,10 @@ class RDFWorker:
 
     def read_record_from_caosdb_into_file(self, recordName, fileName):
         response = self.db.execute_query(f'FIND RECORD "{recordName}"')
-        xmlStringTree = etree.tostring(response.to_xml(), pretty_print=True)
 
         self.parse_xml_into_rdf(response.to_xml())
 
     def parse_xml_into_rdf(self, xmlRoot):
-        graph = Graph()
         rdfString =     '<?xml version="1.0"?> \n\
 \t<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#" \n\
 \t\txml:base="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys" \n\
@@ -119,8 +121,17 @@ class RDFWorker:
     def check_for_excisting_record_type(self, recordTypeName):
         response = self.db.execute_query(f'FIND RECORD "Camera 01"')
 
-    def determine_data_type(self, datatypeRaw):
-        if(datatypeRaw == None):
+    def isFloat(self, element: any) -> bool:
+        try:
+            float(element)
+            print('isFloat: True')
+            return True
+        except ValueError:
+            return False
+
+
+    def determine_data_type(self, datatypeRaw, value):
+        if(datatypeRaw == None and not self.isFloat(value)):
             return self.db.TEXT
         else:
             datatypeString = datatypeRaw.split("#")[1]
@@ -128,7 +139,7 @@ class RDFWorker:
                 return self.db.INTEGER
             elif(datatypeString == 'boolean'):
                 return self.db.BOOLEAN
-            elif(datatypeString == 'double'):
+            elif(datatypeString == 'double' or self.isFloat(value)):
                 return self.db.DOUBLE
             else:
                 return self.db.TEXT
@@ -138,17 +149,22 @@ class RDFWorker:
         if rdf_file_path:
             result = self.g.parse(rdf_file_path)
 
+        output_string = ''
         for idx, (subj, pred, obj) in enumerate(self.g):
             if len(subj.toPython().split("#")) > 1:
                 subj_name = subj.toPython().split("#")[1]
             else:
                 subj_name = subj.toPython().split("#")[0]
-                
+
+            output_string += f'{subj} - {pred} - {obj} \n'
 
             if type(obj) == Literal :
-                prop_type = self.determine_data_type(obj.datatype)
+                prop_type = self.determine_data_type(obj.datatype, obj)
                 self.add_properties_to_record_type(subj_name , pred, obj, prop_type, obj.datatype)
 
+        file1 = open('output.txt', 'w')
+        file1.write(output_string)
+        file1.close()
     def export_caosdb_data_model(self):        
 
         container = self.db.Container()

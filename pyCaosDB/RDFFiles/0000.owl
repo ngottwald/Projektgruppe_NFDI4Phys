@@ -18,6 +18,13 @@
 
 
 
+	<owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Experiment">
+		<Id>0000</Id>
+		<Timestamp>2022.02.15.16.48.23</Timestamp>
+		<University>Uni_Siegen</University>
+		<Room>H-C3306</Room>
+		<Members>J.Matwich,N.Gottwald</Members>
+	</owl:NamedIndividual>
 	<owl:NamedIndividual rdf:about="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser">
 		<rdf:type rdf:resource="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW"/>
 		<Power rdf:datatype="http://www.w3.org/2001/XMLSchema#mW">1.0</Power>
