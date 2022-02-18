@@ -47,7 +47,7 @@ class RDFWorker:
         Properties get added to an dictionary having as key the recordType Name.
         Recordtype element gets created, propertis added and pushed to a recordType list.
     """
-    def addPropertiesToRecordType(self, recordTypeName, propertyName, propertyValue, propertyType, propertyUnit):
+    def add_properties_to_record_type(self, recordTypeName, propertyName, propertyValue, propertyType, propertyUnit):
         propertyObj = Property(propertyName, propertyType, propertyValue, propertyUnit)
 
         if(recordTypeName in self.properties):
@@ -58,13 +58,13 @@ class RDFWorker:
         propertyElement = self.db.Property(name=propertyObj.Name, datatype=propertyObj.ValueType, unit=propertyObj.Unit)
 
         if(not recordTypeName in self.recordTypes):
-            self.createRecordType(recordTypeName)
+            self.create_record_type(recordTypeName)
         self.recordTypes[recordTypeName].add_property(propertyElement)
 
     """ 
         Using existing recordType to create an record
     """
-    def createRecord(self, recordTypeName):
+    def create_record(self, recordTypeName):
         ct = datetime.datetime.now()
         recordElement = self.db.Record(f'{recordTypeName} {ct}')
         recordElement.add_parent(recordTypeName)
@@ -75,21 +75,18 @@ class RDFWorker:
 
         self.records[recordTypeName] = recordElement
 
-    def createRecordType(self, recordTypeName):
-        if not self.checkForExcistingRecordType(recordTypeName):
+    def create_record_type(self, recordTypeName):
+        if not self.check_for_excisting_record_type(recordTypeName):
             recordTypeElement = self.db.RecordType(name=recordTypeName)
             self.recordTypes[recordTypeName] = recordTypeElement
 
-    def readRecordFromCaosDBIntoFile(self, recordName, fileName):
+    def read_record_from_caosdb_into_file(self, recordName, fileName):
         response = self.db.execute_query(f'FIND RECORD "{recordName}"')
         xmlStringTree = etree.tostring(response.to_xml(), pretty_print=True)
-        # TODO: Parse into rdf graph
-        self.parseXMlIntoRDF(response.to_xml(), fileName)
-        # file1 = open(fileName, 'wb')
-        # file1.write(xmlStringTree)
-        # file1.close()
 
-    def parseXMlIntoRDF(self, xmlRoot, fileName):
+        self.parse_xml_into_rdf(response.to_xml())
+
+    def parse_xml_into_rdf(self, xmlRoot):
         graph = Graph()
         rdfString =     '<?xml version="1.0"?> \n\
 \t<rdf:RDF xmlns="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#" \n\
@@ -119,10 +116,10 @@ class RDFWorker:
         file1.write(rdfString)
         file1.close()
 
-    def checkForExcistingRecordType(self, recordTypeName):
+    def check_for_excisting_record_type(self, recordTypeName):
         response = self.db.execute_query(f'FIND RECORD "Camera 01"')
 
-    def determineDataType(self, datatypeRaw):
+    def determine_data_type(self, datatypeRaw):
         if(datatypeRaw == None):
             return self.db.TEXT
         else:
@@ -149,8 +146,8 @@ class RDFWorker:
                 
 
             if type(obj) == Literal :
-                prop_type = self.determineDataType(obj.datatype)
-                self.addPropertiesToRecordType(subj_name , pred, obj, prop_type, obj.datatype)
+                prop_type = self.determine_data_type(obj.datatype)
+                self.add_properties_to_record_type(subj_name , pred, obj, prop_type, obj.datatype)
 
     def export_caosdb_data_model(self):        
 
@@ -173,7 +170,7 @@ class RDFWorker:
 
         # Write data
         for recordTypeName in self.recordTypes:
-            self.createRecord(recordTypeName)
+            self.create_record(recordTypeName)
             self.records[recordTypeName].insert()
 
 
