@@ -1,5 +1,6 @@
 import rdflib
 import datetime
+import os
 from rdflib import Graph, URIRef, Literal, BNode
 from lxml import etree
 
@@ -85,6 +86,8 @@ class RDFWorker:
             propertyElement = self.db.Property(name=prop.Name, value=prop.Value)
             if prop.ValueType == self.db.DOUBLE:
                 prop.Value = float(prop.Value)
+            elif prop.ValueType == self.db.INTEGER:
+                prop.Value = int(prop.Value)
             recordElement.add_property(name=prop.Name, value=prop.Value)
 
         self.records[recordTypeName] = recordElement
@@ -161,7 +164,10 @@ class RDFWorker:
         else:
             datatypeString = datatypeRaw.split("#")[1]
             if(datatypeString == 'integer'):
-                return self.db.INTEGER
+                if '.' in str(value):
+                    return self.db.DOUBLE
+                else:
+                    return self.db.INTEGER
             elif(datatypeString == 'boolean'):
                 return self.db.BOOLEAN
             elif(datatypeString == 'double' or self.isFloat(value)):
@@ -194,10 +200,13 @@ class RDFWorker:
         file1.write(output_string)
         file1.close()
 
-    def write_log_file(self, target, value_list):
+    def write_log_file(self, target, entity, value_list):
+        if not 'logs'in os.listdir():
+            os.mkdir('logs')
+
         ct = datetime.datetime.now()
-        log_file = open(f'logs/{target}{ct.strftime("%y%m%d_%H%M%S")}.log', 'w')
-        log_file.write(f'{ct} {target}:\n\n')
+        log_file = open(f'logs/{entity}_{target}_{ct.strftime("%y%m%d_%H%M%S")}.log', 'w')
+        log_file.write(f'[{ct}] {target}:\n\n')
         for value in value_list:
             log_file.write(str(value))
         log_file.close()
@@ -225,8 +234,8 @@ class RDFWorker:
                 else:
                     container_update.append(self.db.Property(name=prop.Name, id=prop.Id ,datatype=prop.ValueType))            
 
-            self.write_log_file('insert', container_insert)
-            self.write_log_file('update', container_update)
+            self.write_log_file('insert', recordTypeName, container_insert)
+            self.write_log_file('update', recordTypeName, container_update)
  
             try:
                 container.extend(container_insert)
