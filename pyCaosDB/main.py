@@ -24,9 +24,10 @@ def main():
     rdf_worker1 = rdf_worker.RDFWorker(db)
     rdf_worker1.test_db_connection()
 
-    rdf_worker1.import_rdf_data("RDFFiles/2021-11-15.owl")
+    # rdf_worker1.import_rdf_data("RDFFiles/2021-11-15.owl")
+    rdf_worker1.import_rdf_data("RDFFiles/0000.owl")
     rdf_worker1.export_caosdb_data_model()
-    rdf_worker1.read_record_from_caosdb_into_file("Camera 2022-01-23 16:45:00.399284", "test.xml")
+    # rdf_worker1.read_record_from_caosdb_into_file("Camera 2022-01-23 16:45:00.399284", "test.xml")
 
 
 if __name__ == '__main__':

@@ -55,7 +55,7 @@ class RDFWorker:
         Properties get added to an dictionary having as key the recordType Name.
         Recordtype element gets created, propertis added and pushed to a recordType list.
     """
-    def add_properties_to_record_type(self, recordTypeName, property_name, propertyValue, propertyType, propertyUnit):
+    def add_properties_to_record_type(self, record_type_name, property_name, propertyValue, propertyType, propertyUnit):
         prop_id = self.get_entity_id('PROPERTY', property_name)
         if prop_id > 0:
             propertyObj = Property(property_name, propertyType, propertyValue, propertyUnit, prop_id)
@@ -64,23 +64,33 @@ class RDFWorker:
             propertyObj = Property(property_name, propertyType, propertyValue, propertyUnit)
             propertyElement = self.db.Property(name=propertyObj.Name, datatype=propertyObj.ValueType, unit=propertyObj.Unit)
 
-        if(recordTypeName in self.properties):
-            self.properties[recordTypeName].append(propertyObj)
+        if(record_type_name in self.properties):
+            self.properties[record_type_name].append(propertyObj)
         else:
-            self.properties[recordTypeName] = [propertyObj]
+            self.properties[record_type_name] = [propertyObj]
         
 
-        if(not recordTypeName in self.recordTypes):
-            self.create_record_type(recordTypeName)
-        self.recordTypes[recordTypeName].add_property(propertyElement)
+        if(not record_type_name in self.recordTypes):
+            self.create_record_type(record_type_name)
+        self.recordTypes[record_type_name].add_property(propertyElement)
+
+    def add_record_type_to_record_type(self, record_type_name_target, record_type_name):
+        self.recordTypes[record_type_name_target].add_property(self.recordTypes[record_type_name])
 
     """ 
         Using existing recordType to create an record
     """
     def create_record(self, recordTypeName):
         ct = datetime.datetime.now().strftime("%y_%m_%d_%H%M%S")
-        recordElement = self.db.Record(f'{recordTypeName}_{ct}')
+        recordElement = self.db.Record()
         recordElement.add_parent(recordTypeName)
+
+        for el in self.recordTypes[recordTypeName].get_properties():
+            if el.name in self.recordTypes:
+                self.create_record(el.name)
+                self.records[el.name].insert()
+                recordElement.add_property(el.name, self.records[el.name].id)
+
         for prop in self.properties[recordTypeName]:
             # TODO: Maybe some logic to check if the property has a valid value necessary
             propertyElement = self.db.Property(name=prop.Name, value=prop.Value)
@@ -158,11 +168,13 @@ class RDFWorker:
             return False
 
 
-    def determine_data_type(self, datatypeRaw, value):
-        if(datatypeRaw == None and not self.isFloat(value)):
+    def determine_data_type(self, datatype_raw, value):
+        if(datatype_raw == None and not self.isFloat(value)):
             return self.db.TEXT
+        elif datatype_raw == None and self.isFloat(value):
+            return self.db.DOUBLE
         else:
-            datatypeString = datatypeRaw.split("#")[1]
+            datatypeString = datatype_raw.split("#")[1]
             if(datatypeString == 'integer'):
                 if '.' in str(value):
                     return self.db.DOUBLE
@@ -180,25 +192,23 @@ class RDFWorker:
         if rdf_file_path:
             result = self.g.parse(rdf_file_path)
 
-        output_string = ''
+
         for idx, (subj, pred, obj) in enumerate(self.g):
             if len(subj.toPython().split("#")) > 1:
                 subj_name = subj.toPython().split("#")[1]
             else:
                 subj_name = subj.toPython().split("#")[0]
 
-            output_string += f'{subj} - {pred} - {obj} :: {type(obj)}\n'
 
             if type(obj) == Literal :
+                prop_type = None
                 prop_type = self.determine_data_type(obj.datatype, obj)
                 self.add_properties_to_record_type(subj_name , pred, obj, prop_type, obj.datatype)
             elif type(obj) == URIRef and (str(pred) == "http://www.w3.org/1999/02/22-rdf-syntax-ns#type") and not (str(obj) == "http://www.w3.org/2002/07/owl#NamedIndividual"):
-                print(f'subj_name:{subj_name} pred:{pred} obj:{obj}')
                 self.add_properties_to_record_type(subj_name , pred, obj, self.db.TEXT, '')
 
-        file1 = open('output.txt', 'w')
-        file1.write(output_string)
-        file1.close()
+        self.add_record_type_to_record_type('Experiment', 'Camera')
+        self.add_record_type_to_record_type('Experiment', 'Laser')
 
     def write_log_file(self, target, entity, value_list):
         if not 'logs'in os.listdir():
@@ -214,28 +224,28 @@ class RDFWorker:
     def export_caosdb_data_model(self):
 
         # create RecordType
-        for recordTypeName in self.recordTypes:
-            print(recordTypeName)
+        for record_type_name in ["Camera", "Laser", "Experiment"]:
+            print(record_type_name)
             container = self.db.Container()
             container_insert = []
             container_update = []
 
             # RecordTypes
-            if self.exists_in_db('RECORDTYPE', recordTypeName):
-                container_update.append(self.recordTypes[recordTypeName])
+            if self.exists_in_db('RECORDTYPE', record_type_name):
+                container_update.append(self.recordTypes[record_type_name])
             else:
-                container_insert.append(self.recordTypes[recordTypeName]) 
+                container_insert.append(self.recordTypes[record_type_name]) 
 
 
             # Properties
-            for prop in self.properties[recordTypeName]:  
+            for prop in self.properties[record_type_name]:  
                 if not self.exists_in_db('PROPERTY', prop.Name):
                     container_insert.append(self.db.Property(name=prop.Name, datatype=prop.ValueType))
                 else:
                     container_update.append(self.db.Property(name=prop.Name, id=prop.Id ,datatype=prop.ValueType))            
 
-            self.write_log_file('insert', recordTypeName, container_insert)
-            self.write_log_file('update', recordTypeName, container_update)
+            # self.write_log_file('insert', record_type_name, container_insert)
+            # self.write_log_file('update', record_type_name, container_update)
  
             try:
                 container.extend(container_insert)
@@ -245,20 +255,25 @@ class RDFWorker:
                 container.extend(container_update)
                 container.update()
             except Exception as e:
-                print(f'RecordType "{recordTypeName}" still exists \n')
+                print(f'RecordType "{record_type_name}" still exists \n')
                 print(f'The error: {e} \n')
             finally:
                 container.clear()
 
         # Write data
-        flag = True
-        for recordTypeName in self.recordTypes:
-            try:
-                self.create_record(recordTypeName)
-                self.records[recordTypeName].insert()
-            except Exception as e:
-                print(f'Error at {recordTypeName} has occoured\n')
-                print(f'The error: {e} \n')
+        self.create_record('Experiment')
+        print(self.records)
+        self.records['Experiment'].insert()
+
+
+        # flag = True
+        # for record_type_name in self.recordTypes:
+        #     try:
+        #         self.create_record(record_type_name)
+        #         self.records[record_type_name].insert()
+        #     except Exception as e:
+        #         print(f'Error at {record_type_name} has occoured\n')
+        #         print(f'The error: {e} \n')
 
 
 
