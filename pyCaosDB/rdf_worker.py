@@ -110,10 +110,12 @@ class RDFWorker:
             record_type_element = self.db.RecordType(name=record_type_name)
         self.recordTypes[record_type_name] = record_type_element
 
-    def read_record_from_caosdb_into_file(self, recordName, fileName):
-        response = self.db.execute_query(f'FIND RECORD "{recordName}"')
+    def read_record_from_caosdb_into_file(self, find_command, fileName):
+        # response = self.db.execute_query(f'FIND RECORD "{recordName}"')
+        response = self.db.execute_query(find_command)
 
         self.parse_xml_into_rdf(response.to_xml(), fileName)
+        print(response)
 
     def parse_xml_into_rdf(self, xmlRoot, fileName):
         rdfString =     '<?xml version="1.0"?> \n\
@@ -126,18 +128,47 @@ class RDFWorker:
 \t\txmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" \n\
 \t\txmlns:Geiger="http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Geiger/"> \n\n\n'
 
+        sub_records = []
+
         for child in xmlRoot:
             if child.tag == 'Record':
-                rdfString += f'\t\t<owl:NamedIndividual rdf:about="{child.get("name")}"> \n'
                 for subchild in child:
                     subchildName = subchild.get("name")
-                    if(subchildName != None and len(subchildName.split('#')) > 1):
-                        rdfString += f'\t\t\t<{subchildName.split("#")[1]}'
+                    if subchild.tag == 'Parent':
+                        rdfString += f'\t\t<owl:NamedIndividual rdf:about="{subchildName}"> \n'
+                        continue
+                    if subchildName != None and subchildName == subchild.get("datatype"):
+                        sub_records.append(subchild)
+                    if(subchildName != None):
+                        if len(subchildName.split('#')) > 1:
+                            rdfString += f'\t\t\t<{subchildName.split("#")[1]}'
+                        else:
+                            rdfString += f'\t\t\t<{subchildName}'
                         if subchild.get('unit') != None:
                             rdfString += f' rdf:datatype="{subchild.get("unit")}"'
-                        rdfString += f'>{subchild.text}</{subchildName.split("#")[1]}>\n'
+                        if len(subchildName.split('#')) > 1:
+                            rdfString += f'>{subchild.text}</{subchildName.split("#")[1]}>\n'
+                        else:
+                            rdfString += f'>{subchild.text}</{subchildName}>\n'
+                rdfString += f'\t\t</owl:NamedIndividual> \n'
 
-        rdfString += f'\t\t</owl:NamedIndividual> \n'
+        for record in sub_records:
+            print(record.text)
+            rdfString += f'\t\t<owl:NamedIndividual rdf:about="{record.get("name")}"> \n'
+            response = self.db.execute_query(f'FIND RECORD {record.text}')
+            for child in response.to_xml():
+                if child.tag == 'Record':
+                    for subchild in child:
+                        subchildName = subchild.get("name")
+                        if subchildName != None and subchildName == subchild.get("datatype"):
+                            sub_records.append(subchild)
+                        if(subchildName != None and len(subchildName.split('#')) > 1):
+                            rdfString += f'\t\t\t<{subchildName.split("#")[1]}'
+                            if subchild.get('unit') != None:
+                                rdfString += f' rdf:datatype="{subchild.get("unit")}"'
+                            rdfString += f'>{subchild.text}</{subchildName.split("#")[1]}>\n'
+
+            rdfString += f'\t\t</owl:NamedIndividual> \n'
         rdfString += '</rdf:RDF>'
 
         file1 = open(fileName, 'w')
