@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.awt.Desktop;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -16,6 +17,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -32,16 +34,23 @@ class AdapterWindow {
 	JButton importSifButton = new JButton("Import experiment files");
 	JButton openFileChooserButton = new JButton("Select experiment files");
 	JButton convertButton = new JButton("Create RDF-File");
+	JButton uploadButton = new JButton("Upload");
+	JButton visualButton = new JButton("Show visualization");
+	JButton importButton = new JButton("Import experiment");
 	JLabel lbUni = new JLabel("University");
 	JTextField exUni = new JTextField("");
 	JLabel lbRm = new JLabel("Room number");
 	JTextField exRoom = new JTextField("");
 	JLabel lbMb = new JLabel("Team members");
 	JTextField exMember = new JTextField("");
+	JLabel lbImport = new JLabel("Import experiment from database");
+	JTextField importQuery = new JTextField("");
 	
 	JLabel filePathLabel = new JLabel();
 	
 	String sifFilePath = null;
+	
+	String rdfFilePath = null;
 	
 	JPanel panel = new JPanel();
 	
@@ -79,6 +88,7 @@ class AdapterWindow {
                     sifFilePath = null;
                     filePathLabel.setText(sifFilePath);
                     importSifButton.setEnabled(false);
+                    convertButton.setEnabled(true);
 
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -94,7 +104,10 @@ class AdapterWindow {
         			input.input("input/experiments");
         			Output output = new Output();
         			output.output(input.getExperiment(), "output/rdf//");
+        			rdfFilePath = "output/rdf/" + input.getExperiment().getName();
         			System.out.println("RDF-File generated");
+        			uploadButton.setEnabled(true);
+        			visualButton.setEnabled(true);
         		} catch (ParserConfigurationException ex) {
         			// TODO Auto-generated catch block
         			ex.printStackTrace();
@@ -104,28 +117,79 @@ class AdapterWindow {
         		} catch (IOException ex) {
         			// TODO Auto-generated catch block
         			ex.printStackTrace();
-        		}            	
-            } 
+        		}           	
+            } else if(e.getSource() == uploadButton) {
+            	try {
+            		ProcessBuilder builder = new ProcessBuilder(
+                            "cmd.exe", "/c", "python main.py 1 output/rdf/rdfFilePath" + ".owl");
+            		Process p = builder.start();
+        			System.out.println("RDF-File uploaded");
+        		}  catch (IOException ex) {
+        			// TODO Auto-generated catch block
+        			ex.printStackTrace();
+        		}           	
+            } else if(e.getSource() == visualButton) {
+            	System.out.println(rdfFilePath + ".owl");
+            	ParseRdf rdf = null;
+        		try {			
+        			rdf = new ParseRdf(rdfFilePath + ".owl");
+        		}  catch (Exception ex) {
+        			// TODO Auto-generated catch block
+        			ex.printStackTrace();
+        		}
+        		
+        		try {
+					Visual v = new Visual(rdf.getExperiment());
+			    File f = new File("output/png/" + rdf.getExperiment().getName() + ".png");
+				    Desktop dt = Desktop.getDesktop();
+				    dt.open(f);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            } else if(e.getSource() == importButton) {
+            	try {
+            		ProcessBuilder builder = new ProcessBuilder(
+                            "cmd.exe", "/c", "python main.py 2 \"FIND RECORD " + importQuery.getText() + "\" import/" + importQuery.getText() + ".rdf");
+            		Process p = builder.start();
+            		importQuery.setText("");
+        			System.out.println("RDF-File imported");
+        		}  catch (IOException ex) {
+        			// TODO Auto-generated catch block
+        			ex.printStackTrace();
+        		}           	
+            }
         }
     } 
 	
 	public void prepareGUI() {
 		frame.setTitle("NFDI4Phys");
-		frame.setSize(500, 250);
+		frame.setSize(500, 350);
 		
 		panel.setLayout(layout);
 		
 		panel.add(openFileChooserButton);
 		panel.add(filePathLabel);
 		panel.add(importSifButton);
-		panel.add(convertButton);
 		panel.add(lbUni);
 		panel.add(exUni);
 		panel.add(lbRm);
 		panel.add(exRoom);
 		panel.add(lbMb);
 		panel.add(exMember);
+		panel.add(convertButton);
+		panel.add(visualButton);
+		panel.add(uploadButton);
+		panel.add(new JSeparator());
+		panel.add(new JSeparator());
+		panel.add(lbImport);
+		panel.add(importQuery);
 		frame.getContentPane().add(panel);
+		panel.add(importButton);
+		panel.add(importQuery);
+		convertButton.setEnabled(false);
+		uploadButton.setEnabled(false);
+		visualButton.setEnabled(false);
 		
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -134,6 +198,9 @@ class AdapterWindow {
 		importSifButton.addActionListener(new onClickHandler());
 		importSifButton.setEnabled(false);
 		convertButton.addActionListener(new onClickHandler());
+		uploadButton.addActionListener(new onClickHandler());
+		visualButton.addActionListener(new onClickHandler());
+		importButton.addActionListener(new onClickHandler());
 	}
 }
 
@@ -156,15 +223,15 @@ public class Main {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		ParseRdf rdf = null;
-		try {			
-			rdf = new ParseRdf("output/rdf/0000.owl");
-			//rdf.printExperiment();
-		}  catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Visual v = new Visual(rdf.getExperiment());
+//		ParseRdf rdf = null;
+//		try {			
+//			rdf = new ParseRdf("output/rdf/0000.owl");
+//			//rdf.printExperiment();
+//		}  catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		Visual v = new Visual(rdf.getExperiment());
 	}		
 }
