@@ -6,15 +6,15 @@ graph G {
     />0000<BR ALIGN="CENTER"/>>];
 	University [label=
     <<b>University</b><BR ALIGN="LEFT"
-    />Uni_Siegen<BR ALIGN="CENTER"/>>];
+    />Uni-Siegen<BR ALIGN="CENTER"/>>];
 	Experiment -- University;
 	Room [label=
     <<b>Room</b><BR ALIGN="LEFT"
-    />H-C3306<BR ALIGN="CENTER"/>>];
+    />Test<BR ALIGN="CENTER"/>>];
 	University -- Room;
 	Members [label=
     <<b>Members</b><BR ALIGN="LEFT"
-    />J.Matwich,N.Gottwald<BR ALIGN="CENTER"/>>];
+    />Test<BR ALIGN="CENTER"/>>];
 	University -- Members;
 	ActiveDevices [label=
     <<b>Acitve Devices</b>>];
@@ -190,11 +190,5 @@ graph G {
 	powerVal [label=
     <<b>1.0 mW</b>>];
 	Power -- powerVal;
-	Detector [label=
-    <<b>Detector</b>>];
-	ActiveDevices -- Detector;
-	APD [label=
-    <<b>APD</b>>];
-	Detector -- APD;
 	}
 }

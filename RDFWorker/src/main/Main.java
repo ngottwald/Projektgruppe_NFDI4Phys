@@ -3,8 +3,11 @@ package main;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -26,9 +29,9 @@ import visual.Visual;
 class AdapterWindow {
 	JFrame frame = new JFrame();
 	
-	JButton importSifButton = new JButton("Import sif file");
-	JButton openFileChooserButton = new JButton("Select sif file");
-	JButton convertButton = new JButton("Convert sif file");
+	JButton importSifButton = new JButton("Import experiment files");
+	JButton openFileChooserButton = new JButton("Select experiment files");
+	JButton convertButton = new JButton("Create RDF-File");
 	JLabel lbUni = new JLabel("University");
 	JTextField exUni = new JTextField("");
 	JLabel lbRm = new JLabel("Room number");
@@ -66,9 +69,13 @@ class AdapterWindow {
                 }
             } else if(e.getSource() == importSifButton) {
             	try {
-            	ProcessBuilder builder = new ProcessBuilder(
-                        "cmd.exe", "/c", "cd \"C:\\\\Users\\\\josef\\\\workspace\\\\Projektgruppe_NFDI4Phys\\\\SIFReaderSDK\\\\x64\\\\Debug\" && .\\SIFREADERSDK.exe \"" + sifFilePath + "\"");
-                    Process p = builder.start();
+//            	ProcessBuilder builder = new ProcessBuilder(
+//                        "cmd.exe", "/c", "cd \"C:\\\\Users\\\\josef\\\\workspace\\\\Projektgruppe_NFDI4Phys\\\\SIFReaderSDK\\\\x64\\\\Debug\" && .\\SIFREADERSDK.exe \"" + sifFilePath + "\"");
+            		String timestamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            		new File("input\\experiments\\"+timestamp+"\\").mkdirs();
+            		ProcessBuilder builder = new ProcessBuilder(
+                            "cmd.exe", "/c", "cd \"resources\" && .\\SIFREADERSDK.exe \"" + sifFilePath + "\"  ..\\input\\experiments\\"+timestamp+"\\sif.xml");
+            		Process p = builder.start();
                     sifFilePath = null;
                     filePathLabel.setText(sifFilePath);
                     importSifButton.setEnabled(false);
@@ -81,9 +88,13 @@ class AdapterWindow {
             } else if(e.getSource() == convertButton) {
             	try {
         			Input input = new Input(exUni.getText(), exRoom.getText(), exMember.getText());
+        			exUni.setText("");
+        			exRoom.setText("");
+        			exMember.setText("");
         			input.input("input/experiments");
         			Output output = new Output();
-        			output.output(input.getExperiment(), "output//");
+        			output.output(input.getExperiment(), "output/rdf//");
+        			System.out.println("RDF-File generated");
         		} catch (ParserConfigurationException ex) {
         			// TODO Auto-generated catch block
         			ex.printStackTrace();
@@ -128,23 +139,23 @@ class AdapterWindow {
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		//new AdapterWindow();
+		new AdapterWindow();
         
-		try {
-			Input input = new Input("Uni_Siegen", "H-C3306", "J.Matwich,N.Gottwald");
-			input.input("input/experiments");
-			Output output = new Output();
-			output.output(input.getExperiment(), "output/rdf//");
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Input input = new Input("Uni-Siegen", "H-C3306", "J.Matwich,N.Gottwald");
+//			input.input("input/experiments");
+//			Output output = new Output();
+//			output.output(input.getExperiment(), "output/rdf//");
+//		} catch (ParserConfigurationException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SAXException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		ParseRdf rdf = null;
 		try {			
 			rdf = new ParseRdf("output/rdf/0000.owl");

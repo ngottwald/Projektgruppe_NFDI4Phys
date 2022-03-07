@@ -294,12 +294,12 @@ public class Visual{
 	    	}	    	
 	    }
 	    
-		out.println("	Detector [label=\n"
-				+ "    <<b>Detector</b>>];");
-		out.println("	ActiveDevices -- Detector;");
-		out.println("	APD [label=\n"
-				+ "    <<b>APD</b>>];");
-		out.println("	Detector -- APD;");
+//		out.println("	Detector [label=\n"
+//				+ "    <<b>Detector</b>>];");
+//		out.println("	ActiveDevices -- Detector;");
+//		out.println("	APD [label=\n"
+//				+ "    <<b>APD</b>>];");
+//		out.println("	Detector -- APD;");
 	    out.println("	}");
 	    out.println("}");
 	    

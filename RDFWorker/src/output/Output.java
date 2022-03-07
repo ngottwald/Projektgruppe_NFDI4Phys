@@ -33,7 +33,7 @@ public class Output {
 		
 	    // The RDF-File gets written directly.
 	    
-		out.println("	<owl:NamedIndividual rdf:about=\"http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Experiment\">");
+		out.println("	<owl:NamedIndividual rdf:about=\"base:#Experiment\">");
 		out.println("		<Id>" + experiment.getName() + "</Id>");
 		out.println("		<Timestamp>" + experiment.getTimestamp() + "</Timestamp>");
 		out.println("		<University>" + experiment.getUniversity() + "</University>");
@@ -45,32 +45,32 @@ public class Output {
 			if(d instanceof Camera) {
 				if(d instanceof EMCCD) {
 					EMCCD emccd = (EMCCD) d;
-					out.println("	<owl:NamedIndividual rdf:about=\"http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Camera\">");
-					out.println("		<rdf:type rdf:resource=\"http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#EMCCD\"/>");
-					out.println("		<Back_Ilumination rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + emccd.isBackIllumination() + "</Back_Ilumination>");
+					out.println("	<owl:NamedIndividual rdf:about=\"base:#Camera\">");
+					out.println("		<rdf:type rdf:resource=\"base:#EMCCD\"/>");
+					out.println("		<Back_Ilumination rdf:datatype=\"xsd:#boolean\">" + emccd.isBackIllumination() + "</Back_Ilumination>");
 					out.println("		<Binning>" + emccd.getResolutionBinningX() + "x" + emccd.getResolutionBinningY() + "</Binning>");
-					out.println("		<Cooling_Temperature rdf:datatype=\"http://www.w3.org/2001/XMLSchema#Celsius\">" + emccd.getCoolingTemperature() + "</Cooling_Temperature>");
-					out.println("		<C-Mount rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + emccd.iscMount() + "</C-Mount>");
-					out.println("		<Dark_Noise rdf:datatype=\"http://www.w3.org/2001/XMLSchema#electrons_per_pixel_per_second\">"+ emccd.getDarkNoisecountsPerSecond() + "</Dark_Noise>");
+					out.println("		<Cooling_Temperature rdf:datatype=\"xsd:#Celsius\">" + emccd.getCoolingTemperature() + "</Cooling_Temperature>");
+					out.println("		<C-Mount rdf:datatype=\"xsd:#boolean\">" + emccd.iscMount() + "</C-Mount>");
+					out.println("		<Dark_Noise rdf:datatype=\"xsd:#electrons_per_pixel_per_second\">"+ emccd.getDarkNoisecountsPerSecond() + "</Dark_Noise>");
 					out.println("		<Detection_Efficiency>" + emccd.getSensorQuantumEfficiency() + "%</Detection_Efficiency>");
 					//out.println("		<Electronic_Noise>" + emccd.getElectronsPerPixelPerSeconds() + " electrons per pixel per second and " + emccd.getNoiseTemperature() + " Celsius</Electronic_Noise>");
 					out.println("		<Frame_Binning>" + emccd.getFrameBinningX() + "x" + emccd.getFrameBinningY() + "</Frame_Binning>");
-					out.println("		<Frame_Rate rdf:datatype=\"http://www.w3.org/2001/XMLSchema#MHz\">" + emccd.getFrameRate() + "</Frame_Rate>");
+					out.println("		<Frame_Rate rdf:datatype=\"xsd:#MHz\">" + emccd.getFrameRate() + "</Frame_Rate>");
 					out.println("		<Image_Area>" + emccd.getImageAreaLength() + "x" + emccd.getImageAreaWidth() + "</Image_Area>");
-					out.println("		<F-Mount rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + emccd.isfMount() + "</F-Mount>");
-					out.println("		<Fringe_Supression rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + emccd.isFringeSuppression() + "</Fringe_Supression>");
+					out.println("		<F-Mount rdf:datatype=\"xsd:#boolean\">" + emccd.isfMount() + "</F-Mount>");
+					out.println("		<Fringe_Supression rdf:datatype=\"xsd:#boolean\">" + emccd.isFringeSuppression() + "</Fringe_Supression>");
 					out.println("		<Linearity>>" + emccd.getLinearity() + "%</Linearity>");
-					out.println("		<Maximum_Readout_Rate rdf:datatype=\"http://www.w3.org/2001/XMLSchema#MHz\">" + emccd.getMaximumReadoutRate() + "</Maximum_Readout_Rate>");
-					out.println("		<Number_Of_Pixels rdf:datatype=\"http://www.w3.org/2001/XMLSchema#integer\">" + emccd.getNumberOfPixels() + "</Number_Of_Pixels>");
-					out.println("		<Operating_Temperature rdf:datatype=\"http://www.w3.org/2001/XMLSchema#Celsius\">" + emccd.getOperatingTemperature() + "</Operating_Temperature>");
-					out.println("		<Pixel_Size rdf:datatype=\"http://www.w3.org/2001/XMLSchema#micro_meter\">" + emccd.getPixelLength() + "x" + emccd.getPixelWidth() + "</Pixel_Size>");
+					out.println("		<Maximum_Readout_Rate rdf:datatype=\"xsd:#MHz\">" + emccd.getMaximumReadoutRate() + "</Maximum_Readout_Rate>");
+					out.println("		<Number_Of_Pixels rdf:datatype=\"xsd:#integer\">" + emccd.getNumberOfPixels() + "</Number_Of_Pixels>");
+					out.println("		<Operating_Temperature rdf:datatype=\"xsd:#Celsius\">" + emccd.getOperatingTemperature() + "</Operating_Temperature>");
+					out.println("		<Pixel_Size rdf:datatype=\"xsd:#micro_meter\">" + emccd.getPixelLength() + "x" + emccd.getPixelWidth() + "</Pixel_Size>");
 					out.println("		<Quantum_Efficiency>" + emccd.getSensorQuantumEfficiency() + "%</Quantum_Efficiency>");
-					out.println("		<Read_Noise rdf:datatype=\"http://www.w3.org/2001/XMLSchema#electrons_per_pixel_per_second\">"+ emccd.getReadNoiseElectrons() + "</Read_Noise>");
-					out.println("		<Time_Stamp_Accuracy rdf:datatype=\"http://www.w3.org/2001/XMLSchema#integer\">" + emccd.getTimeStampAccuracy() + "</Time_Stamp_Accuracy>");
-					out.println("		<T-Mount rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + emccd.istMount() + "</T-Mount>");
-					out.println("		<Vertical_Clock_Speed rdf:datatype=\"http://www.w3.org/2001/XMLSchema#integer\">" + emccd.getVerticalClockSpeed() + "</Vertical_Clock_Speed>");
-					out.println("		<Wavelength rdf:datatype=\"http://www.w3.org/2001/XMLSchema#nm\">" + emccd.getWavelength() + "</Wavelength>");
-					out.println("		<Well_Depth rdf:datatype=\"http://www.w3.org/2001/XMLSchema#electrons_per_pixel\">" + emccd.getWellDepth() + "</Well_Depth>");
+					out.println("		<Read_Noise rdf:datatype=\"xsd:#electrons_per_pixel_per_second\">"+ emccd.getReadNoiseElectrons() + "</Read_Noise>");
+					out.println("		<Time_Stamp_Accuracy rdf:datatype=\"xsd:#integer\">" + emccd.getTimeStampAccuracy() + "</Time_Stamp_Accuracy>");
+					out.println("		<T-Mount rdf:datatype=\"xsd:#boolean\">" + emccd.istMount() + "</T-Mount>");
+					out.println("		<Vertical_Clock_Speed rdf:datatype=\"base:#integer\">" + emccd.getVerticalClockSpeed() + "</Vertical_Clock_Speed>");
+					out.println("		<Wavelength rdf:datatype=\"xsd:#nm\">" + emccd.getWavelength() + "</Wavelength>");
+					out.println("		<Well_Depth rdf:datatype=\"xsd:#electrons_per_pixel\">" + emccd.getWellDepth() + "</Well_Depth>");
 					out.println("	</owl:NamedIndividual>");
 				}
 				if(d instanceof CCD) {
@@ -103,10 +103,10 @@ public class Output {
 				if(d instanceof Laser) {
 					if(d instanceof CW) {
 						CW cw = (CW) d;
-						out.println("	<owl:NamedIndividual rdf:about=\"http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#Laser\">");
-						out.println("		<rdf:type rdf:resource=\"http://www.semanticweb.org/tobiasvente/ontologies/2020/11/NFDI4Phys#CW\"/>");
-						out.println("		<Power rdf:datatype=\"http://www.w3.org/2001/XMLSchema#mW\">" + cw.getMilliwat() + "</Power>");
-						out.println("		<Wavelength rdf:datatype=\"http://www.w3.org/2001/XMLSchema#nm\">" + cw.getWavelength() + "</Wavelength>");						
+						out.println("	<owl:NamedIndividual rdf:about=\"base:#Laser\">");
+						out.println("		<rdf:type rdf:resource=\"base:#CW\"/>");
+						out.println("		<Power rdf:datatype=\"xsd:#mW\">" + cw.getMilliwat() + "</Power>");
+						out.println("		<Wavelength rdf:datatype=\"xsd:#nm\">" + cw.getWavelength() + "</Wavelength>");						
 						out.println("	</owl:NamedIndividual>");
 					}
 				}
