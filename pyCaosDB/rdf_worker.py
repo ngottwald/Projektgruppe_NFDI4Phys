@@ -74,6 +74,9 @@ class RDFWorker:
             self.create_record_type(record_type_name)
         self.recordTypes[record_type_name].add_property(propertyElement)
 
+    """
+    For more complex data structres it is necessary to have record types having record types
+    """
     def add_record_type_to_record_type(self, record_type_name_target, record_type_name):
         self.recordTypes[record_type_name_target].add_property(self.recordTypes[record_type_name])
 
@@ -102,6 +105,8 @@ class RDFWorker:
 
         self.records[recordTypeName] = recordElement
 
+    """
+    """
     def create_record_type(self, record_type_name):
         record_type_id = self.get_entity_id('RECORDTYPE', record_type_name)
         if record_type_id > 0:
@@ -110,6 +115,9 @@ class RDFWorker:
             record_type_element = self.db.RecordType(name=record_type_name)
         self.recordTypes[record_type_name] = record_type_element
 
+    """
+    The find_command will be executed on the configured caosdb and the result get saved into an rdf file.
+    """
     def read_record_from_caosdb_into_file(self, find_command, fileName):
         # response = self.db.execute_query(f'FIND RECORD "{recordName}"')
         response = self.db.execute_query(find_command)
@@ -175,14 +183,18 @@ class RDFWorker:
         file1.write(rdfString)
         file1.close()
 
-
+    """
+    To check if an entity still exists on the configured database
+    """
     def exists_in_db(self, entity_type, entity_name):
         if entity_type.upper() == 'RECORD' or entity_type.upper()  == 'PROPERTY' or entity_type.upper()  == 'RECORDTYPE':
             response = self.db.execute_query(f'FIND {entity_type.upper() } "{entity_name}"')
             return len(response) > 0
         else:
             raise ValueError("Wrong entity_type. Should be 'RECORD' or 'PROPERTY'")
-
+    """
+    Try to get an id of a given entity. Needed for updating entities.
+    """
     def get_entity_id(self, entity_type, entity_name):
         if entity_type.upper() == 'RECORD' or entity_type.upper()  == 'PROPERTY' or entity_type.upper()  == 'RECORDTYPE':
             response = self.db.execute_query(f'FIND {entity_type.upper() } "{entity_name}"')
@@ -198,7 +210,9 @@ class RDFWorker:
         except ValueError:
             return False
 
-
+    """
+    Try to determinate datatype if no datatype is given by try to parse the value in a valid datatype.
+    """
     def determine_data_type(self, datatype_raw, value):
         if(datatype_raw == None and not self.isFloat(value)):
             return self.db.TEXT
@@ -218,7 +232,9 @@ class RDFWorker:
             else:
                 return self.db.TEXT
     
-
+    """
+    Import the an rdf file and create entites holding the data.
+    """
     def import_rdf_data(self, rdf_file_path):
         if rdf_file_path:
             result = self.g.parse(rdf_file_path)
