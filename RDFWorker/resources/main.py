@@ -59,7 +59,7 @@ def main():
         rdf_worker1 = rdf_worker.RDFWorker(db, logger)
         rdf_worker1.test_db_connection()
 
-        print(mode)
+        print(f'Execution mode: {mode}')
         if mode == "1" :
             logger.info(f'Upload mode')
             

@@ -135,7 +135,6 @@ class RDFWorker:
         response = self.db.execute_query(find_command)
 
         self.parse_xml_into_rdf(response.to_xml(), fileName)
-        print(response)
 
     def parse_xml_into_rdf(self, xmlRoot, fileName):
         rdfString =     '<?xml version="1.0"?> \n\
@@ -174,7 +173,6 @@ class RDFWorker:
                 rdfString += f'\t\t</owl:NamedIndividual> \n'
 
         for record in sub_records:
-            print(record.text)
             rdfString += f'\t\t<owl:NamedIndividual rdf:about="base:#{record.get("name")}"> \n'
             response = self.db.execute_query(f'FIND RECORD {record.text}')
             for child in response.to_xml():

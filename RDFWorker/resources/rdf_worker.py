@@ -59,6 +59,16 @@ class RDFWorker:
     """
     def add_properties_to_record_type(self, record_type_name, property_name, propertyValue, propertyType, propertyUnit):
         prop_id = self.get_entity_id('PROPERTY', property_name)
+        
+        # replace long base by short like in owl
+        base_name = property_name.split('#')[0]
+        element_name = property_name.split('#')[1]
+        if(base_name == 'http://www.semanticweb.org/unisiegen/ontologies/2020/11/NFDI4Phys'):
+            base_name = 'base:'
+        elif(base_name == 'http://www.w3.org/1999/02/22-rdf-syntax-ns'):
+            base_name = 'rdf:'
+        property_name = f'{base_name}#{element_name}'
+
         if prop_id > 0:
             propertyObj = Property(property_name, propertyType, propertyValue, propertyUnit, prop_id)
             propertyElement = self.db.Property(name=propertyObj.Name, id=prop_id,datatype=propertyObj.ValueType, unit=propertyObj.Unit)
@@ -125,7 +135,6 @@ class RDFWorker:
         response = self.db.execute_query(find_command)
 
         self.parse_xml_into_rdf(response.to_xml(), fileName)
-        print(response)
 
     def parse_xml_into_rdf(self, xmlRoot, fileName):
         rdfString =     '<?xml version="1.0"?> \n\
@@ -164,7 +173,6 @@ class RDFWorker:
                 rdfString += f'\t\t</owl:NamedIndividual> \n'
 
         for record in sub_records:
-            print(record.text)
             rdfString += f'\t\t<owl:NamedIndividual rdf:about="base:#{record.get("name")}"> \n'
             response = self.db.execute_query(f'FIND RECORD {record.text}')
             for child in response.to_xml():
@@ -244,11 +252,13 @@ class RDFWorker:
     Import the an rdf file and create entites holding the data.
     """
     def import_rdf_data(self, rdf_file_path):
+        print('Start importing data ...')
         if rdf_file_path:
             result = self.g.parse(rdf_file_path)
 
 
         for idx, (subj, pred, obj) in enumerate(self.g):
+            print(f'{idx+1}/{len(self.g)}', end="\r")
             if len(subj.toPython().split("#")) > 1:
                 subj_name = subj.toPython().split("#")[1]
             else:
@@ -277,10 +287,10 @@ class RDFWorker:
         log_file.close()
 
     def export_caosdb_data_model(self):
-
+        print('Start writing into CaosDB ...')
         # create RecordType
         for record_type_name in ["Camera", "Laser", "Experiment"]:
-            print(record_type_name)
+            print(f'Import: {record_type_name}')
             self.Logger.info(f'Read data for [{record_type_name}]')
             container = self.db.Container()
             container_insert = []
@@ -288,16 +298,20 @@ class RDFWorker:
 
             # RecordTypes
             if self.exists_in_db('RECORDTYPE', record_type_name):
+                print(f'\t -> RECORDTYPE still exists => update ')
                 container_update.append(self.recordTypes[record_type_name])
             else:
+                print(f'\t -> RECORDTYPE not   exists => insert ')
                 container_insert.append(self.recordTypes[record_type_name]) 
 
 
             # Properties
-            for prop in self.properties[record_type_name]:  
+            for prop in self.properties[record_type_name]:
                 if not self.exists_in_db('PROPERTY', prop.Name):
+                    print(f'\t -> PROPERTY {prop.Name} not exists => insert ', end='\r')
                     container_insert.append(self.db.Property(name=prop.Name, datatype=prop.ValueType))
                 else:
+                    print(f'\t -> PROPERTY {prop.Name} (Id:{prop.Id}) still exists => update              ', end='\r')
                     container_update.append(self.db.Property(name=prop.Name, id=prop.Id ,datatype=prop.ValueType))            
 
             # self.write_log_file('insert', record_type_name, container_insert)
@@ -307,12 +321,16 @@ class RDFWorker:
                 container.extend(container_insert)
                 container.insert()
                 container.clear()
+            except Exception as e:
+                self.Logger.error(f'RecordType "{record_type_name}" still exists')
+                self.Logger.error(f'The error: {e} ')
+            finally:
+                container.clear()
 
+            try:
                 container.extend(container_update)
                 container.update()
             except Exception as e:
-                print(f'RecordType "{record_type_name}" still exists \n')
-                print(f'The error: {e} \n')
                 self.Logger.error(f'RecordType "{record_type_name}" still exists')
                 self.Logger.error(f'The error: {e} ')
             finally:
@@ -320,19 +338,6 @@ class RDFWorker:
 
         # Write data
         self.create_record('Experiment')
-        print(self.records)
+        # print(self.records)
         self.records['Experiment'].insert()
-
-
-        # flag = True
-        # for record_type_name in self.recordTypes:
-        #     try:
-        #         self.create_record(record_type_name)
-        #         self.records[record_type_name].insert()
-        #     except Exception as e:
-        #         print(f'Error at {record_type_name} has occoured\n')
-        #         print(f'The error: {e} \n')
-
-
-
-
+        print("\n")
